@@ -31,6 +31,7 @@ void ProcessManager::loadSystemProcess()
 {
     QList<QPair<QString, QStringList>> list;
     list << qMakePair(QString("kwin_x11"), QStringList());
+    list << qMakePair(QString("cyber-settings-daemon"), QStringList());
     list << qMakePair(QString("panda-files"), QStringList() << "--desktop");
     list << qMakePair(QString("panda-statusbar"), QStringList());
     list << qMakePair(QString("cyber-dock"), QStringList());
