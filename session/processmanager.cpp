@@ -35,7 +35,7 @@ void ProcessManager::loadSystemProcess()
     list << qMakePair(QString("panda-statusbar"), QStringList());
     list << qMakePair(QString("cyber-dock"), QStringList());
     list << qMakePair(QString("cyber-launcher"), QStringList());
-    list << qMakePair(QString("panda-xembedsniproxy"), QStringList());
+    list << qMakePair(QString("cyber-xembedsniproxy"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;

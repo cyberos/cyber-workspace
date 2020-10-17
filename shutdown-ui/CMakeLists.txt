@@ -1,9 +1,9 @@
-project(cyber-shutdown LANGUAGES CXX)
+project(cyber-shutdown)
 
 add_executable(cyber-shutdown
-  main.cpp
-  actions.cpp
-  qml.qrc
+    main.cpp
+    actions.cpp
+    qml.qrc
 )
 
 target_link_libraries(cyber-shutdown
