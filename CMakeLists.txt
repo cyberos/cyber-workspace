@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(panda-core)
+project(workspace)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 

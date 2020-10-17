@@ -32,8 +32,8 @@ void Application::initEnvironments()
     qputenv("XDG_CONFIG_HOME", QString("%1/.config").arg(QDir::homePath()).toLocal8Bit());
     qputenv("XDG_CACHE_HOME", QString("%1/.cache").arg(QDir::homePath()).toLocal8Bit());
     qputenv("XDG_DESKTOP_DIR", QString("%1/Desktop").arg(QDir::homePath()).toLocal8Bit());
-    qputenv("QT_PLATFORM_PLUGIN", "panda");
-    qputenv("QT_QPA_PLATFORMTHEME", "panda");
+    qputenv("QT_PLATFORM_PLUGIN", "cyber");
+    qputenv("QT_QPA_PLATFORMTHEME", "cyber");
 }
 
 void Application::initLanguage()
@@ -60,7 +60,7 @@ void Application::initLanguage()
 
 void Application::initScreenScaleFactors()
 {
-    QSettings settings(QSettings::UserScope, "cyber", "theme");
+    QSettings settings(QSettings::UserScope, "cyberos", "theme");
     qreal scaleFactor = settings.value("PixelRatio", 1.0).toReal();
 
     qputenv("QT_SCREEN_SCALE_FACTORS", QByteArray::number(scaleFactor));
