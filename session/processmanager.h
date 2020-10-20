@@ -16,6 +16,7 @@ public:
     void logout();
 
     void loadSystemProcess();
+    void loadAutoStartProcess();
 
 private:
     QMap<QString, QProcess *> m_systemProcess;

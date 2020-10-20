@@ -1,6 +1,12 @@
 #include "processmanager.h"
+
 #include <QCoreApplication>
+#include <QFileInfoList>
+#include <QFileInfo>
+#include <QSettings>
 #include <QDebug>
+#include <QTimer>
+#include <QDir>
 
 ProcessManager::ProcessManager(QObject *parent)
     : QObject(parent)
@@ -10,6 +16,8 @@ ProcessManager::ProcessManager(QObject *parent)
 void ProcessManager::start()
 {
     loadSystemProcess();
+
+    QTimer::singleShot(100, this, &ProcessManager::loadAutoStartProcess);
 }
 
 void ProcessManager::logout()
@@ -32,21 +40,66 @@ void ProcessManager::loadSystemProcess()
     QList<QPair<QString, QStringList>> list;
     list << qMakePair(QString("kwin_x11"), QStringList());
     list << qMakePair(QString("cyber-settings-daemon"), QStringList());
+    list << qMakePair(QString("cyber-xembedsniproxy"), QStringList());
+
+    // Desktop components
     list << qMakePair(QString("panda-files"), QStringList() << "--desktop");
-    list << qMakePair(QString("panda-statusbar"), QStringList());
+    list << qMakePair(QString("cyber-statusbar"), QStringList());
     list << qMakePair(QString("cyber-dock"), QStringList());
     list << qMakePair(QString("cyber-launcher"), QStringList());
-    list << qMakePair(QString("cyber-xembedsniproxy"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
         process->setProgram(pair.first);
         process->setArguments(pair.second);
         process->start();
+        process->waitForStarted();
 
         qDebug() << "loadSystemProcess(): " << pair.first << pair.second;
 
         // Add to map
         m_systemProcess.insert(pair.first, process);
+    }
+}
+
+void ProcessManager::loadAutoStartProcess()
+{
+    QStringList execList;
+    QStringList xdgDesktopList;
+    xdgDesktopList << "/etc/xdg/autostart";
+
+    for (const QString &dirName : xdgDesktopList) {
+        QDir dir(dirName);
+        if (!dir.exists())
+            continue;
+
+        const QFileInfoList files = dir.entryInfoList(QStringList("*.desktop"), QDir::Files | QDir::Readable);
+        for (const QFileInfo &fi : files) {
+            QSettings desktop(fi.filePath(), QSettings::IniFormat);
+            desktop.setIniCodec("UTF-8");
+            desktop.beginGroup("Desktop Entry");
+
+            if (desktop.contains("OnlyShowIn"))
+                continue;
+
+            const QString execValue = desktop.value("Exec").toString();
+
+            if (!execValue.isEmpty()) {
+                execList << execValue;
+            }
+        }
+    }
+
+    for (const QString &exec : execList) {
+        QProcess *process = new QProcess;
+        process->setProgram(exec);
+        process->start();
+        process->waitForStarted();
+
+        if (process->exitCode() == 0) {
+            m_autoStartProcess.insert(exec, process);
+        } else {
+            process->deleteLater();
+        }
     }
 }
