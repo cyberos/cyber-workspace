@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=PolicyKit Handler
+TryExec=cyber-polkit-agent
+Exec=cyber-polkit-agent
+NoDisplay=true
