@@ -34,6 +34,7 @@ void Application::initEnvironments()
     qputenv("XDG_DESKTOP_DIR", QString("%1/Desktop").arg(QDir::homePath()).toLocal8Bit());
     qputenv("QT_PLATFORM_PLUGIN", "cyber");
     qputenv("QT_QPA_PLATFORMTHEME", "cyber");
+    qputenv("QT_QUICK_CONTROLS_STYLE", "meui-style");
 }
 
 void Application::initLanguage()
