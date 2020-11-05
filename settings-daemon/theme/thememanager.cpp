@@ -123,7 +123,6 @@ void ThemeManager::initGtkConfig()
     settings.setValue("gtk-application-prefer-dark-theme", isDarkMode());
     // other
     settings.setValue("gtk-enable-animations", true);
-    settings.setValue("gtk-decoration-layout", "menu:minimize,maximize,close");
     settings.sync();
 }
 
