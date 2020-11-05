@@ -48,8 +48,7 @@ ThemeManager::ThemeManager(QObject *parent)
     m_isDarkMode = m_settings->value("DarkMode", false).toBool();
 
     // Start the DE and need to update the settings agin.
-    updateGtkFont();
-    updateGtkDarkTheme();
+    initGtkConfig();
 }
 
 bool ThemeManager::isDarkMode()
@@ -110,6 +109,22 @@ qreal ThemeManager::devicePixelRatio()
 void ThemeManager::setDevicePixelRatio(qreal ratio)
 {
     m_settings->setValue(s_devicePixelRatio, ratio);
+}
+
+void ThemeManager::initGtkConfig()
+{
+    QSettings settings(gtk3SettingsIniPath(), QSettings::IniFormat);
+    settings.clear();
+    settings.setIniCodec("UTF-8");
+    settings.beginGroup("Settings");
+    // font
+    settings.setValue("gtk-font-name", QString("%1 %2").arg(systemFont()).arg(systemFontPointSize()));
+    // dark mode
+    settings.setValue("gtk-application-prefer-dark-theme", isDarkMode());
+    // other
+    settings.setValue("gtk-enable-animations", true);
+    settings.setValue("gtk-decoration-layout", "menu:minimize,maximize,close");
+    settings.sync();
 }
 
 void ThemeManager::updateGtkFont()

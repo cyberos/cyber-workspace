@@ -50,6 +50,8 @@ public:
     qreal devicePixelRatio();
     void setDevicePixelRatio(qreal ratio);
 
+    void initGtkConfig();
+
 signals:
     void darkModeChanged(bool darkMode);
 
