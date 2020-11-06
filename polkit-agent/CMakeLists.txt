@@ -22,6 +22,8 @@ target_link_libraries(cyber-polkit-agent
         Qt5::Quick
         Qt5::QuickControls2
 
+        MeuiKit
+
         ${POLKITQT-1_CORE_LIBRARY}
         ${POLKITQT-1_AGENT_LIBRARY}
         ${POLKIT_AGENT_LDFLAGS}

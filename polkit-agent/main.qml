@@ -1,17 +1,16 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import MeuiKit 1.0 as Meui
 
 Rectangle {
     id: root
     width: 550
     height: mainLayout.implicitHeight + 50
 
-    radius: 10
-    opacity: 1
-    color: "white"
-
-    border.color: Qt.rgba(0, 0, 0, 0.2)
+    radius: Meui.Theme.bigRadius
+    color: Meui.Theme.backgroundColor
+    border.color: Qt.rgba(0, 0, 0, 0.4)
     border.width: 1
 
     RowLayout {
