@@ -55,8 +55,8 @@ class ScreenDevice
 {
 public:
     void set(int value) {
-        if (value < 0)
-            value = 0;
+        if (value <= 0)
+            value = 1;
         else if (value > 100)
             value = 100;
 

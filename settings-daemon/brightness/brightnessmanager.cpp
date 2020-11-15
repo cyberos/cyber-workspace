@@ -132,8 +132,7 @@ void BrightnessManager::initUsingWhitelist()
     interfaces << "nv_backlight" << "radeon_bl" << "mbp_backlight" << "asus_laptop"
                << "toshiba" << "eeepc" << "thinkpad_screen" << "acpi_video1" << "acpi_video0"
                << "intel_backlight" << "apple_backlight" << "fujitsu-laptop" << "samsung"
-               << "nvidia_backlight" << "dell_backlight" << "sony" << "pwm-backlight"
-        ;
+               << "nvidia_backlight" << "dell_backlight" << "sony" << "pwm-backlight";
 
     QDir dir;
     foreach (const QString & interface, interfaces) {
