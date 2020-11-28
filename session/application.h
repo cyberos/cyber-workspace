@@ -1,12 +1,12 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <QApplication>
+#include <QCoreApplication>
 
 #include "processmanager.h"
 #include "powermanager/power.h"
 
-class Application : public QApplication
+class Application : public QCoreApplication
 {
     Q_OBJECT
 
@@ -15,16 +15,19 @@ public:
 
 
 public slots:
-    void logout() {
+    void logout()
+    {
         m_processManager->logout();
     }
 
-    void reboot() {
+    void reboot()
+    {
         m_power.reboot();
         QCoreApplication::exit(0);
     }
 
-    void powerOff() {
+    void powerOff()
+    {
         m_power.shutdown();
         QCoreApplication::exit(0);
     }

@@ -52,7 +52,6 @@ void printDBusMsg(const QDBusMessage &msg)
     qWarning() << "****************************************";
 }
 
-
 /************************************************
  Helper func
  ************************************************/
@@ -65,8 +64,8 @@ static bool dbusCall(const QString &service,
               )
 {
     QDBusInterface dbus(service, path, interface, connection);
-    if (!dbus.isValid())
-    {
+    
+    if (!dbus.isValid()) {
         qWarning() << "dbusCall: QDBusInterface is invalid" << service << path << interface << method;
         if (errorCheck == PowerProvider::CheckDBUS)
         {
@@ -79,9 +78,7 @@ static bool dbusCall(const QString &service,
     }
 
     QDBusMessage msg = dbus.call(method);
-
-    if (!msg.errorName().isEmpty())
-    {
+    if (!msg.errorName().isEmpty()) {
         printDBusMsg(msg);
         if (errorCheck == PowerProvider::CheckDBUS)
         {
@@ -115,16 +112,15 @@ static bool dbusCallSystemd(const QString &service,
                      )
 {
     QDBusInterface dbus(service, path, interface, connection);
-    if (!dbus.isValid())
-    {
+    if (!dbus.isValid()) {
         qWarning() << "dbusCall: QDBusInterface is invalid" << service << path << interface << method;
-        if (errorCheck == PowerProvider::CheckDBUS)
-        {
+        if (errorCheck == PowerProvider::CheckDBUS) {
             // Notification::notify(
             //                         QObject::tr("Power Manager Error"),
             //                         QObject::tr("QDBusInterface is invalid") + QStringLiteral("\n\n") + service + QStringLiteral(' ') + path + QStringLiteral(' ')+ interface + QStringLiteral(' ') + method,
             //                         QStringLiteral("logo.png"));
         }
+
         return false;
     }
 
@@ -148,7 +144,6 @@ static bool dbusCallSystemd(const QString &service,
     qDebug() << "systemd:" << method << "=" << response;
     return response == QStringLiteral("yes") || response == QStringLiteral("challenge");
 }
-
 
 /************************************************
  Helper func
@@ -187,9 +182,6 @@ bool dbusGetProperty(const QString &service,
             msg.arguments().constFirst().value<QDBusVariant>().variant().toBool();
 }
 
-
-
-
 /************************************************
  PowerProvider
  ************************************************/
@@ -198,12 +190,9 @@ PowerProvider::PowerProvider(QObject *parent):
 {
 }
 
-
 PowerProvider::~PowerProvider()
 {
 }
-
-
 
 /************************************************
  UPowerProvider
@@ -213,33 +202,28 @@ UPowerProvider::UPowerProvider(QObject *parent):
 {
 }
 
-
 UPowerProvider::~UPowerProvider()
 {
 }
-
 
 bool UPowerProvider::canAction(Power::Action action) const
 {
     QString command;
     QString property;
-    switch (action)
-    {
+    switch (action) {
     case Power::PowerHibernate:
         property = QStringLiteral("CanHibernate");
         command  = QStringLiteral("HibernateAllowed");
         break;
-
     case Power::PowerSuspend:
         property = QStringLiteral("CanSuspend");
         command  = QStringLiteral("SuspendAllowed");
         break;
-
     default:
         return false;
     }
 
-    return  dbusGetProperty(  // Whether the system is able to hibernate.
+    return dbusGetProperty(  // Whether the system is able to hibernate.
                 QStringLiteral(UPOWER_SERVICE),
                 QStringLiteral(UPOWER_PATH),
                 QStringLiteral(PROPERTIES_INTERFACE),
@@ -260,21 +244,17 @@ bool UPowerProvider::canAction(Power::Action action) const
             );
 }
 
-
 bool UPowerProvider::doAction(Power::Action action)
 {
     QString command;
 
-    switch (action)
-    {
+    switch (action) {
     case Power::PowerHibernate:
         command = QStringLiteral("Hibernate");
         break;
-
     case Power::PowerSuspend:
         command = QStringLiteral("Suspend");
         break;
-
     default:
         return false;
     }
@@ -287,8 +267,6 @@ bool UPowerProvider::doAction(Power::Action action)
              command );
 }
 
-
-
 /************************************************
  ConsoleKitProvider
  ************************************************/
@@ -297,17 +275,14 @@ ConsoleKitProvider::ConsoleKitProvider(QObject *parent):
 {
 }
 
-
 ConsoleKitProvider::~ConsoleKitProvider()
 {
 }
 
-
 bool ConsoleKitProvider::canAction(Power::Action action) const
 {
     QString command;
-    switch (action)
-    {
+    switch (action) {
     case Power::PowerReboot:
         command = QStringLiteral("CanReboot");
         break;
@@ -341,28 +316,22 @@ bool ConsoleKitProvider::canAction(Power::Action action) const
                    );
 }
 
-
 bool ConsoleKitProvider::doAction(Power::Action action)
 {
     QString command;
-    switch (action)
-    {
+    switch (action) {
     case Power::PowerReboot:
         command = QStringLiteral("Reboot");
         break;
-
     case Power::PowerShutdown:
         command = QStringLiteral("PowerOff");
         break;
-
     case Power::PowerHibernate:
         command = QStringLiteral("Hibernate");
         break;
-
     case Power::PowerSuspend:
         command = QStringLiteral("Suspend");
         break;
-
     default:
         return false;
     }
@@ -372,8 +341,7 @@ bool ConsoleKitProvider::doAction(Power::Action action)
                 QStringLiteral(CONSOLEKIT_INTERFACE),
                 QDBusConnection::systemBus(),
                 command,
-                true
-               );
+                true);
 }
 
 /************************************************
@@ -387,34 +355,27 @@ SystemdProvider::SystemdProvider(QObject *parent):
 {
 }
 
-
 SystemdProvider::~SystemdProvider()
 {
 }
-
 
 bool SystemdProvider::canAction(Power::Action action) const
 {
     QString command;
 
-    switch (action)
-    {
+    switch (action) {
     case Power::PowerReboot:
         command = QStringLiteral("CanReboot");
         break;
-
     case Power::PowerShutdown:
         command = QStringLiteral("CanPowerOff");
         break;
-
     case Power::PowerSuspend:
         command = QStringLiteral("CanSuspend");
         break;
-
     case Power::PowerHibernate:
         command = QStringLiteral("CanHibernate");
         break;
-
     default:
         return false;
     }
@@ -432,29 +393,23 @@ bool SystemdProvider::canAction(Power::Action action) const
                    );
 }
 
-
 bool SystemdProvider::doAction(Power::Action action)
 {
     QString command;
 
-    switch (action)
-    {
+    switch (action) {
     case Power::PowerReboot:
         command = QStringLiteral("Reboot");
         break;
-
     case Power::PowerShutdown:
         command = QStringLiteral("PowerOff");
         break;
-
     case Power::PowerSuspend:
         command = QStringLiteral("Suspend");
         break;
-
     case Power::PowerHibernate:
         command = QStringLiteral("Hibernate");
         break;
-
     default:
         return false;
     }
@@ -476,18 +431,15 @@ HalProvider::HalProvider(QObject *parent):
 {
 }
 
-
 HalProvider::~HalProvider()
 {
 }
-
 
 bool HalProvider::canAction(Power::Action action) const
 {
     Q_UNUSED(action)
     return false;
 }
-
 
 bool HalProvider::doAction(Power::Action action)
 {

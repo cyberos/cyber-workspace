@@ -5,8 +5,6 @@ set(SOURCES
     application.cpp
     main.cpp
     process.cpp
-    systemmodules.cpp
-    xdgautostart.cpp
     processmanager.cpp
 
     powermanager/power.cpp

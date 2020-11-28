@@ -39,11 +39,9 @@ Power::Power(QObject * parent /*= nullptr*/)
 {
 }
 
-
 Power::~Power()
 {
 }
-
 
 bool Power::canAction(Power::Action action) const
 {
@@ -53,7 +51,6 @@ bool Power::canAction(Power::Action action) const
 
     return false;
 }
-
 
 bool Power::doAction(Power::Action action)
 {
@@ -65,7 +62,6 @@ bool Power::doAction(Power::Action action)
     }
     return false;
 }
-
 
 bool Power::canLogout()    const { return canAction(PowerLogout);    }
 bool Power::canHibernate() const { return canAction(PowerHibernate); }

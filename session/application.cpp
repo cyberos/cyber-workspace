@@ -9,7 +9,7 @@
 #include <QDir>
 
 Application::Application(int &argc, char **argv)
-    : QApplication(argc, argv)
+    : QCoreApplication(argc, argv)
     , m_processManager(new ProcessManager)
 {
     // connect to D-Bus and register as an object:

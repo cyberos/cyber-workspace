@@ -23,6 +23,7 @@ void ProcessManager::start()
 void ProcessManager::logout()
 {
     QMap<QString, QProcess *>::iterator itor = m_systemProcess.begin();
+
     while (itor != m_systemProcess.end()) {
         QProcess *process = itor.value();
         process->terminate();
@@ -55,7 +56,7 @@ void ProcessManager::loadSystemProcess()
         process->start();
         process->waitForStarted();
 
-        qDebug() << "loadSystemProcess(): " << pair.first << pair.second;
+        qDebug() << "Load DE components: " << pair.first << pair.second;
 
         // Add to map
         m_systemProcess.insert(pair.first, process);
