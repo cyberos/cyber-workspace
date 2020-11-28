@@ -58,6 +58,10 @@ Rectangle {
                 Layout.fillWidth: true
                 selectByMouse: true
                 focus: true
+                onAccepted: {
+                    if (passwordInput.text)
+                        confirmation.setConfirmationResult(passwordInput.text)
+                }
             }
 
             Item {
@@ -66,7 +70,8 @@ Rectangle {
 
             RowLayout {
                 Button {
-                    text: qsTr("OK")
+                    id: doneButton
+                    text: qsTr("Done")
                     Layout.fillWidth: true
                     height: 50
                     onClicked: confirmation.setConfirmationResult(passwordInput.text)
