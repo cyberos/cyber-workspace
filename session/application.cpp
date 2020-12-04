@@ -9,7 +9,7 @@
 #include <QDir>
 
 Application::Application(int &argc, char **argv)
-    : QCoreApplication(argc, argv)
+    : QApplication(argc, argv)
     , m_processManager(new ProcessManager)
 {
     // connect to D-Bus and register as an object:
@@ -28,12 +28,35 @@ Application::Application(int &argc, char **argv)
 
 void Application::initEnvironments()
 {
+    // Set defaults
+    if (qEnvironmentVariableIsEmpty("XDG_DATA_HOME"))
+        qputenv("XDG_DATA_HOME", QDir::home().absoluteFilePath(QStringLiteral(".local/share")).toLocal8Bit());
+    if (qEnvironmentVariableIsEmpty("XDG_DESKTOP_DIR"))
+        qputenv("XDG_DESKTOP_DIR", QDir::home().absoluteFilePath(QStringLiteral("/Desktop")).toLocal8Bit());
+    if (qEnvironmentVariableIsEmpty("XDG_CONFIG_HOME"))
+        qputenv("XDG_CONFIG_HOME", QDir::home().absoluteFilePath(QStringLiteral(".config")).toLocal8Bit());
+    if (qEnvironmentVariableIsEmpty("XDG_CACHE_HOME"))
+        qputenv("XDG_CACHE_HOME", QDir::home().absoluteFilePath(QStringLiteral(".cache")).toLocal8Bit());
+    if (qEnvironmentVariableIsEmpty("XDG_DATA_DIRS"))
+        qputenv("XDG_DATA_DIRS", "/usr/local/share/:/usr/share/");
+    if (qEnvironmentVariableIsEmpty("XDG_CONFIG_DIRS"))
+        qputenv("XDG_CONFIG_DIRS", "/etc/xdg");
+
+    // Environment
+    qputenv("DESKTOP_SESSION", "Cyber");
     qputenv("XDG_CURRENT_DESKTOP", "Cyber");
-    qputenv("XDG_CONFIG_HOME", QString("%1/.config").arg(QDir::homePath()).toLocal8Bit());
-    qputenv("XDG_CACHE_HOME", QString("%1/.cache").arg(QDir::homePath()).toLocal8Bit());
-    qputenv("XDG_DESKTOP_DIR", QString("%1/Desktop").arg(QDir::homePath()).toLocal8Bit());
-    qputenv("QT_PLATFORM_PLUGIN", "cyber");
+    qputenv("XDG_SESSION_DESKTOP", "cyber");
+
+    // Set environment for the programs we will launch from here
+// #if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+//     qputenv("QT_QPA_PLATFORM", "wayland;xcb");
+// #else
+//     qputenv("QT_QPA_PLATFORM", "wayland");
+// #endif
+
     qputenv("QT_QPA_PLATFORMTHEME", "cyber");
+    qputenv("QT_PLATFORM_PLUGIN", "cyber");
+
     qputenv("QT_QUICK_CONTROLS_STYLE", "meui-style");
 }
 

@@ -1,12 +1,12 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <QCoreApplication>
+#include <QApplication>
 
 #include "processmanager.h"
 #include "powermanager/power.h"
 
-class Application : public QCoreApplication
+class Application : public QApplication
 {
     Q_OBJECT
 
