@@ -8,6 +8,8 @@
 Battery::Battery(UPowerDevice *device, QObject *parent)
     : QObject(parent)
     , m_device(device)
+    , m_settings(nullptr)
+    , m_lastChargedPercent(0)
 {
     connect(device, SIGNAL(changed()), this, SLOT(slotChanged()));
 
@@ -37,6 +39,9 @@ void Battery::init()
     if (type() == Battery::PrimaryBattery) {
         new PrimaryBatteryAdaptor(this);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/PrimaryBattery"), this);
+
+        m_settings = new QSettings(QStringLiteral("cyberos"), QStringLiteral("PrimaryBattery"));
+        m_lastChargedPercent = m_settings->value("LastChargedPercent", 0).toInt();
 
         // m_refreshTimer.setInterval(500);
         // m_refreshTimer.start();
@@ -281,6 +286,11 @@ QString Battery::statusString() const
     return QString();
 }
 
+int Battery::lastChargedPercent() const
+{
+    return m_lastChargedPercent;
+}
+
 void Battery::slotChanged()
 {
     if (m_device) {
@@ -318,6 +328,17 @@ void Battery::slotChanged()
 
         if (old_chargeState != m_chargeState) {
             emit chargeStateChanged(m_chargeState);
+        }
+
+        // Save last charge percentage
+        if ((old_chargeState == Battery::Charging || old_chargeState == Battery::FullyCharged) && 
+             m_chargeState == Battery::Discharging) {
+            m_lastChargedPercent = m_chargePercent;
+
+            if (m_settings)
+                m_settings->setValue("LastChargedPercent", m_lastChargedPercent);
+
+            emit lastChargedPercentChanged();
         }
 
         if (old_timeToEmpty != m_timeToEmpty) {

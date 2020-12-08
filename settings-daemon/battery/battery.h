@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QSettings>
 #include "upowerdevice.h"
 
 class Battery : public QObject
@@ -17,6 +18,7 @@ class Battery : public QObject
     Q_PROPERTY(int chargeState READ chargeState NOTIFY chargeStateChanged)
     Q_PROPERTY(qlonglong remainingTime READ remainingTime NOTIFY remainingTimeChanged)
     Q_PROPERTY(QString statusString READ statusString NOTIFY remainingTimeChanged)
+    Q_PROPERTY(int lastChargedPercent READ lastChargedPercent NOTIFY lastChargedPercentChanged)
 
 public:
     /**
@@ -126,6 +128,7 @@ public:
 
     QString formatDuration(qlonglong seconds) const;
     QString statusString() const;
+    int lastChargedPercent() const;
 
 signals:
     void presentStateChanged(bool newState);
@@ -142,6 +145,7 @@ signals:
     void voltageChanged(double voltage);
     void temperatureChanged(double temperature);
     void remainingTimeChanged(qlonglong time);
+    void lastChargedPercentChanged();
 
 private slots:
     void slotChanged();
@@ -162,6 +166,9 @@ private:
     double m_energyRate;
     double m_voltage;
     double m_temperature;
+
+    QSettings *m_settings;
+    int m_lastChargedPercent;
 
     // QTimer m_refreshTimer;
 };
