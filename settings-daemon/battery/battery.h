@@ -2,6 +2,7 @@
 #define BATTERY_H
 
 #include <QObject>
+#include <QTimer>
 #include "upowerdevice.h"
 
 class Battery : public QObject
@@ -14,6 +15,8 @@ class Battery : public QObject
     Q_PROPERTY(int isRechargeable READ isRechargeable)
     Q_PROPERTY(int isPowerSupply READ isPowerSupply)
     Q_PROPERTY(int chargeState READ chargeState NOTIFY chargeStateChanged)
+    Q_PROPERTY(qlonglong remainingTime READ remainingTime NOTIFY remainingTimeChanged)
+    Q_PROPERTY(QString statusString READ statusString NOTIFY remainingTimeChanged)
 
 public:
     /**
@@ -76,6 +79,7 @@ public:
 
     void updateCache();
     void init();
+    void refresh();
 
     bool isPresent() const;
     Battery::BatteryType type() const;
@@ -120,6 +124,9 @@ public:
 
     qlonglong remainingTime() const;
 
+    QString formatDuration(qlonglong seconds) const;
+    QString statusString() const;
+
 signals:
     void presentStateChanged(bool newState);
     void chargePercentChanged(int value);
@@ -155,6 +162,8 @@ private:
     double m_energyRate;
     double m_voltage;
     double m_temperature;
+
+    // QTimer m_refreshTimer;
 };
 
 #endif // BATTERY_H

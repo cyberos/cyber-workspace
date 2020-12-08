@@ -37,7 +37,26 @@ void Battery::init()
     if (type() == Battery::PrimaryBattery) {
         new PrimaryBatteryAdaptor(this);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/PrimaryBattery"), this);
+
+        // m_refreshTimer.setInterval(500);
+        // m_refreshTimer.start();
+        // connect(&m_refreshTimer, &QTimer::timeout, this, [=] {
+        //     QDBusInterface iface(UP_DBUS_SERVICE, m_device->udi(), UP_DBUS_INTERFACE_DEVICE,
+        //                          QDBusConnection::systemBus());
+        //     if (iface.isValid()) {
+        //         iface.call("Refresh");
+        //         slotChanged();
+        //     }
+        // });
     }
+}
+
+void Battery::refresh()
+{
+    QDBusInterface iface(UP_DBUS_SERVICE, m_device->udi(),
+                         UP_DBUS_INTERFACE_DEVICE, QDBusConnection::systemBus());
+    if (iface.isValid())
+        iface.call("Refresh");
 }
 
 bool Battery::isPresent() const
@@ -227,6 +246,39 @@ qlonglong Battery::remainingTime() const
     }
 
     return -1;
+}
+
+QString Battery::formatDuration(qlonglong seconds) const
+{
+    const int minutes = seconds / 60;
+    const int hours = minutes / 60;
+    const int minutesRemainder = minutes % 60;
+
+    const QString minutesString = minutesRemainder > 9 ? QString::number(minutesRemainder)
+                                                       : QStringLiteral("0") + QString::number(minutesRemainder);
+
+    QString result;
+    if (hours > 0) {
+        result.push_back(QString::number(hours) + tr("h"));
+    }
+
+    result.push_back(" ");
+    result.push_back(QString::number(minutesRemainder) + tr("m"));
+
+    return result;
+}
+
+QString Battery::statusString() const
+{
+    if (chargeState() == Battery::Charging) {
+        return QString("%1 ").arg(formatDuration(remainingTime())) + tr("until fully charged");
+    } else if (chargeState() == Battery::Discharging) {
+        return tr("remaining") + QString(" %1").arg(formatDuration(remainingTime()));
+    } else if (chargeState() == Battery::FullyCharged) {
+        return tr("full charged");
+    }
+
+    return QString();
 }
 
 void Battery::slotChanged()

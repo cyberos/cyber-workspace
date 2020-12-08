@@ -1,9 +1,13 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
   <interface name="org.cyber.PrimaryBattery">
+    <method name="refresh"></method>
+
     <property name="chargeState" type="i" access="read"/>
     <property name="chargePercent" type="i" access="read"/>
     <property name="capacity" type="i" access="read"/>
+    <property name="remainingTime" type="x" access="read"/>
+    <property name="statusString" type="s" access="read"/>
 
     <signal name="chargeStateChanged">
       <arg name="value" type="i"/>
@@ -13,6 +17,9 @@
     </signal>
     <signal name="capacityChanged">
       <arg name="value" type="i"/>
+    </signal>
+    <signal name="remainingTimeChanged">
+      <arg name="value" type="x"/>
     </signal>
   </interface>
 </node>
