@@ -19,6 +19,7 @@
 
 #include "thememanager.h"
 #include "themeadaptor.h"
+#include <QFile>
 #include <QDebug>
 
 static const QByteArray s_systemFontName = QByteArrayLiteral("Font");
@@ -40,6 +41,15 @@ ThemeManager::ThemeManager(QObject *parent)
   : QObject(parent),
     m_settings(new QSettings(QStringLiteral("cyberos"), QStringLiteral("theme")))
 {
+    if (!QFile::exists(m_settings->fileName())) {
+        QFile file(m_settings->fileName());
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QTextStream in(&file);
+            in << "";
+            file.close();
+        }
+    }
+
     // init dbus
     new ThemeAdaptor(this);
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/Theme"), this);

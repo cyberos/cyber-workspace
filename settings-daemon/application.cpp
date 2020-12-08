@@ -34,5 +34,5 @@ Application::Application(int &argc, char **argv)
 {
     new DBusAdaptor(this);
     // connect to D-Bus and register as an object:
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.cyber.settings"));
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.cyber.Settings"));
 }

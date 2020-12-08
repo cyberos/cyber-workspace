@@ -22,6 +22,7 @@ Application::Application(int &argc, char **argv)
     initEnvironments();
     initLanguage();
     initScreenScaleFactors();
+    syncDBusEnvironment();
 
     m_processManager->start();
 }
@@ -45,7 +46,7 @@ void Application::initEnvironments()
     // Environment
     qputenv("DESKTOP_SESSION", "Cyber");
     qputenv("XDG_CURRENT_DESKTOP", "Cyber");
-    qputenv("XDG_SESSION_DESKTOP", "cyber");
+    qputenv("XDG_SESSION_DESKTOP", "Cyber");
 
     // Set environment for the programs we will launch from here
 // #if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
