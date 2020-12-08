@@ -18,4 +18,5 @@
     <signal name="muteChanged">
         <arg type="b"/>
     </signal>
+  </interface>
 </node>

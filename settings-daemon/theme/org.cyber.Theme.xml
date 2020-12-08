@@ -26,4 +26,5 @@
     <signal name="darkModeChanged">
         <arg type="b"/>
     </signal>
+  </interface>
 </node>

@@ -13,6 +13,8 @@ file (GLOB_RECURSE SRCS
   "brightness/*.h"
   "brightness/*.cpp"
   "brightness/*.c"
+  "battery/*.cpp"
+  "battery/*.h"
 )
 
 set(SOURCES ${SRCS})
@@ -29,6 +31,9 @@ qt5_add_dbus_adaptor(DBUS_SOURCES
 qt5_add_dbus_adaptor(DBUS_SOURCES
                      theme/org.cyber.Theme.xml
                      theme/thememanager.h ThemeManager)
+qt5_add_dbus_adaptor(DBUS_SOURCES
+                     battery/org.cyber.PrimaryBattery.xml
+                     battery/battery.h Battery)
 
 set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 

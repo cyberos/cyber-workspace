@@ -27,10 +27,11 @@
 #include <QDir>
 
 Application::Application(int &argc, char **argv)
-    : QApplication(argc, argv),
-      m_audioManager(new AudioManager(this)),
-      m_themeManager(new ThemeManager(this)),
-      m_brightnessManager(new BrightnessManager(this))
+    : QApplication(argc, argv)
+    , m_audioManager(new AudioManager(this))
+    , m_themeManager(new ThemeManager(this))
+    , m_brightnessManager(new BrightnessManager(this))
+    , m_upowerManager(new UPowerManager(this))
 {
     new DBusAdaptor(this);
     // connect to D-Bus and register as an object:

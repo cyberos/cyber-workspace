@@ -24,6 +24,7 @@
 #include "audio/audiomanager.h"
 #include "theme/thememanager.h"
 #include "brightness/brightnessmanager.h"
+#include "battery/upowermanager.h"
 
 class Application : public QApplication
 {
@@ -38,6 +39,7 @@ private:
     AudioManager *m_audioManager;
     ThemeManager *m_themeManager;
     BrightnessManager *m_brightnessManager;
+    UPowerManager *m_upowerManager;
 };
 
 #endif // APPLICATION_H

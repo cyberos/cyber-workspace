@@ -9,4 +9,5 @@
     <property name="brightness" type="i" access="read"/>
 
     <signal name="brightnessChanged"></signal>
+  </interface>
 </node>
