@@ -65,6 +65,14 @@ ApplicationWindow {
             onClicked: actions.logout()
         }
 
+        IconButton {
+            id: suspendButton
+            Layout.alignment: Qt.AlignVCenter
+            text: qsTr("Suspend")
+            icon: "qrc:///icons/system-suspend.svg"
+            onClicked: actions.suspend()
+        }
+
         Item {
             Layout.fillWidth: true
         }

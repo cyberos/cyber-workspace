@@ -32,6 +32,12 @@ public slots:
         QCoreApplication::exit(0);
     }
 
+    void suspend()
+    {
+        m_power.suspend();
+        QCoreApplication::exit(0);
+    }
+
 private:
     void initEnvironments();
     void initLanguage();
