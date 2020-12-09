@@ -1,6 +1,8 @@
 #include "battery.h"
 #include "power.h"
 #include "primarybatteryadaptor.h"
+
+#include <QDateTime>
 #include <QDebug>
 
 // ref: https://upower.freedesktop.org/docs/Device.html
@@ -10,6 +12,7 @@ Battery::Battery(UPowerDevice *device, QObject *parent)
     , m_device(device)
     , m_settings(nullptr)
     , m_lastChargedPercent(0)
+    , m_lastChargedSecs(0)
 {
     connect(device, SIGNAL(changed()), this, SLOT(slotChanged()));
 
@@ -42,6 +45,7 @@ void Battery::init()
 
         m_settings = new QSettings(QStringLiteral("cyberos"), QStringLiteral("PrimaryBattery"));
         m_lastChargedPercent = m_settings->value("LastChargedPercent", 0).toInt();
+        m_lastChargedSecs = m_settings->value("LastChargedSecs").toLongLong();
 
         // m_refreshTimer.setInterval(500);
         // m_refreshTimer.start();
@@ -291,6 +295,11 @@ int Battery::lastChargedPercent() const
     return m_lastChargedPercent;
 }
 
+quint64 Battery::lastChargedSecs() const
+{
+    return m_lastChargedSecs;
+}
+
 void Battery::slotChanged()
 {
     if (m_device) {
@@ -334,11 +343,15 @@ void Battery::slotChanged()
         if ((old_chargeState == Battery::Charging || old_chargeState == Battery::FullyCharged) && 
              m_chargeState == Battery::Discharging) {
             m_lastChargedPercent = m_chargePercent;
+            m_lastChargedSecs = QDateTime::currentSecsSinceEpoch();
 
-            if (m_settings)
+            if (m_settings) {
                 m_settings->setValue("LastChargedPercent", m_lastChargedPercent);
+                m_settings->setValue("LastChargedSecs", m_lastChargedSecs);
+            }
 
             emit lastChargedPercentChanged();
+            emit lastChargedSecsChanged();
         }
 
         if (old_timeToEmpty != m_timeToEmpty) {

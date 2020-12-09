@@ -9,6 +9,7 @@
     <property name="remainingTime" type="x" access="read"/>
     <property name="statusString" type="s" access="read"/>
     <property name="lastChargedPercent" type="i" access="read"/>
+    <property name="lastChargedSecs" type="x" access="read"/>
 
     <signal name="chargeStateChanged">
       <arg name="value" type="i"/>
@@ -23,6 +24,8 @@
       <arg name="value" type="x"/>
     </signal>
     <signal name="lastChargedPercentChanged">
+    </signal>
+    <signal name="lastChargedSecsChanged">
     </signal>
   </interface>
 </node>

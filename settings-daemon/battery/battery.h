@@ -19,6 +19,7 @@ class Battery : public QObject
     Q_PROPERTY(qlonglong remainingTime READ remainingTime NOTIFY remainingTimeChanged)
     Q_PROPERTY(QString statusString READ statusString NOTIFY remainingTimeChanged)
     Q_PROPERTY(int lastChargedPercent READ lastChargedPercent NOTIFY lastChargedPercentChanged)
+    Q_PROPERTY(quint64 lastChargedSecs READ lastChargedSecs NOTIFY lastChargedSecsChanged)
 
 public:
     /**
@@ -129,6 +130,7 @@ public:
     QString formatDuration(qlonglong seconds) const;
     QString statusString() const;
     int lastChargedPercent() const;
+    quint64 lastChargedSecs() const;
 
 signals:
     void presentStateChanged(bool newState);
@@ -146,6 +148,7 @@ signals:
     void temperatureChanged(double temperature);
     void remainingTimeChanged(qlonglong time);
     void lastChargedPercentChanged();
+    void lastChargedSecsChanged();
 
 private slots:
     void slotChanged();
@@ -169,6 +172,7 @@ private:
 
     QSettings *m_settings;
     int m_lastChargedPercent;
+    quint64 m_lastChargedSecs;
 
     // QTimer m_refreshTimer;
 };
