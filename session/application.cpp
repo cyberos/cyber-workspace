@@ -12,19 +12,23 @@ Application::Application(int &argc, char **argv)
     : QApplication(argc, argv)
     , m_processManager(new ProcessManager)
 {
+    new SessionAdaptor(this);
+
     // connect to D-Bus and register as an object:
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.cyber.Session"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/Session"), this);
-
-    new SessionAdaptor(this);
 
     createConfigDirectory();
     initEnvironments();
     initLanguage();
     initScreenScaleFactors();
-    syncDBusEnvironment();
 
-    m_processManager->start();
+    if (!syncDBusEnvironment()) {
+        // Startup error
+        qDebug() << "Could not sync environment to dbus.";
+    }
+
+    QTimer::singleShot(100, m_processManager, &ProcessManager::start);
 }
 
 void Application::initEnvironments()
@@ -94,17 +98,15 @@ void Application::initScreenScaleFactors()
     qputenv("GDK_DPI_SCALE", QByteArray::number(1.0 / scaleFactor, 'g', 3));
 }
 
-void Application::syncDBusEnvironment()
+bool Application::syncDBusEnvironment()
 {
-    int exitCode = -1;
+    int exitCode;
     // At this point all environment variables are set, let's send it to the DBus session server to update the activation environment
     if (!QStandardPaths::findExecutable(QStringLiteral("dbus-update-activation-environment")).isEmpty()) {
         exitCode = runSync(QStringLiteral("dbus-update-activation-environment"), { QStringLiteral("--systemd"), QStringLiteral("--all") });
     }
 
-    if (exitCode != 0) {
-        qDebug() << "Could not sync environment to dbus.";
-    }
+    return exitCode == 0;
 }
 
 void Application::createConfigDirectory()

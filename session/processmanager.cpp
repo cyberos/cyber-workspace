@@ -22,15 +22,21 @@ void ProcessManager::start()
 
 void ProcessManager::logout()
 {
-    QMap<QString, QProcess *>::iterator itor = m_systemProcess.begin();
+    QMapIterator<QString, QProcess *> i(m_systemProcess);
 
-    while (itor != m_systemProcess.end()) {
-        QProcess *process = itor.value();
-        process->terminate();
-        if (process->state() != QProcess::NotRunning && !process->waitForFinished(2000)) {
-            process->kill();
+    while (i.hasNext()) {
+        i.next();
+        QProcess *p = i.value();
+        p->terminate();
+    }
+    i.toFront();
+
+    while (i.hasNext()) {
+        i.next();
+        QProcess *p = i.value();
+        if (p->state() != QProcess::NotRunning && !p->waitForFinished(2000)) {
+            p->kill();
         }
-        ++itor;
     }
 
     QCoreApplication::exit(0);
@@ -51,6 +57,7 @@ void ProcessManager::loadSystemProcess()
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
+        process->setProcessChannelMode(QProcess::ForwardedChannels);
         process->setProgram(pair.first);
         process->setArguments(pair.second);
         process->start();
