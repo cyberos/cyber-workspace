@@ -10,6 +10,7 @@
     <property name="statusString" type="s" access="read"/>
     <property name="lastChargedPercent" type="i" access="read"/>
     <property name="lastChargedSecs" type="x" access="read"/>
+    <property name="lastChargedTime" type="s" access="read"/>
 
     <signal name="chargeStateChanged">
       <arg name="value" type="i"/>

@@ -300,6 +300,21 @@ quint64 Battery::lastChargedSecs() const
     return m_lastChargedSecs;
 }
 
+QString Battery::lastChargedTime() const
+{
+    QDateTime now = QDateTime::currentDateTime();
+    QDateTime time = QDateTime::fromSecsSinceEpoch(m_lastChargedSecs);
+    qint64 minutes = qRound64(time.secsTo(now) / 60.0f);
+    qint64 hours = qRound64(minutes / 60.0f);
+
+    if (minutes < 1)
+        return tr("now");
+    else if (minutes == 1 || minutes < 60)
+        return tr("%1m ago").arg(minutes);
+
+    return tr("%1h %2m ago").arg(hours).arg(minutes);
+}
+
 void Battery::slotChanged()
 {
     if (m_device) {
