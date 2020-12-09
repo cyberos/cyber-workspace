@@ -1,6 +1,7 @@
 #include "actions.h"
 #include <QCommandLineParser>
 #include <QDBusInterface>
+#include <QApplication>
 
 const static QString s_dbusName = "org.cyber.Session";
 const static QString s_pathName = "/Session";
@@ -34,4 +35,13 @@ void Actions::reboot()
     if (iface.isValid()) {
         iface.call("reboot");
     }
+}
+
+void Actions::suspend()
+{
+    QDBusInterface iface(s_dbusName, s_pathName, s_interfaceName, QDBusConnection::sessionBus());
+    if (iface.isValid()) {
+        iface.call("suspend");
+    }
+    QCoreApplication::exit(0);
 }

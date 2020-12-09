@@ -10,5 +10,8 @@
     <method name="powerOff">
       <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
     </method>
+    <method name="suspend">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
   </interface>
 </node>
