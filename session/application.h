@@ -35,7 +35,6 @@ public slots:
     void suspend()
     {
         m_power.suspend();
-        QCoreApplication::exit(0);
     }
 
 private:
