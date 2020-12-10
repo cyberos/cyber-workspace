@@ -50,7 +50,7 @@ void ProcessManager::loadSystemProcess()
     list << qMakePair(QString("cyber-xembedsniproxy"), QStringList());
 
     // Desktop components
-    list << qMakePair(QString("panda-files"), QStringList() << "--desktop");
+    list << qMakePair(QString("cyber-desktop-daemon"), QStringList());
     list << qMakePair(QString("cyber-statusbar"), QStringList());
     list << qMakePair(QString("cyber-dock"), QStringList());
     list << qMakePair(QString("cyber-launcher"), QStringList());
