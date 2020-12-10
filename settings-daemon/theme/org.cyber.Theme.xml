@@ -16,15 +16,22 @@
     <method name="setDevicePixelRatio">
         <arg name="ratio" type="d" direction="in"/>
     </method>
+    <method name="setWallpaper">
+        <arg name="path" type="s" direction="in"/>
+    </method>
 
     <property name="isDarkMode" type="b" access="read"/>
     <property name="systemFont" type="s" access="read"/>
     <property name="systemFixedFont" type="s" access="read"/>
     <property name="systemFontPointSize" type="d" access="read"/>
     <property name="devicePixelRatio" type="d" access="read"/>
+    <property name="wallpaper" type="s" access="read"/>
 
     <signal name="darkModeChanged">
         <arg type="b"/>
+    </signal>
+    <signal name="wallpaperChanged">
+        <arg type="s"/>
     </signal>
   </interface>
 </node>

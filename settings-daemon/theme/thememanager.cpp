@@ -38,8 +38,8 @@ static QString gtk3SettingsIniPath()
 }
 
 ThemeManager::ThemeManager(QObject *parent)
-  : QObject(parent),
-    m_settings(new QSettings(QStringLiteral("cyberos"), QStringLiteral("theme")))
+    : QObject(parent)
+    , m_settings(new QSettings(QStringLiteral("cyberos"), QStringLiteral("theme")))
 {
     if (!QFile::exists(m_settings->fileName())) {
         QFile file(m_settings->fileName());
@@ -56,6 +56,7 @@ ThemeManager::ThemeManager(QObject *parent)
 
     // init value
     m_isDarkMode = m_settings->value("DarkMode", false).toBool();
+    m_wallpaperPath = m_settings->value("Wallpaper", "").toString();
 
     // Start the DE and need to update the settings agin.
     initGtkConfig();
@@ -119,6 +120,20 @@ qreal ThemeManager::devicePixelRatio()
 void ThemeManager::setDevicePixelRatio(qreal ratio)
 {
     m_settings->setValue(s_devicePixelRatio, ratio);
+}
+
+QString ThemeManager::wallpaper()
+{
+    return m_wallpaperPath;
+}
+
+void ThemeManager::setWallpaper(const QString &path)
+{
+    if (m_wallpaperPath != path) {
+        m_wallpaperPath = path;
+        m_settings->setValue("Wallpaper", path);
+        emit wallpaperChanged(path);
+    }
 }
 
 void ThemeManager::initGtkConfig()

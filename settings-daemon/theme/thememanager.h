@@ -26,11 +26,12 @@
 class ThemeManager : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool isDarkMode READ isDarkMode WRITE setDarkMode)
+    Q_PROPERTY(bool isDarkMode READ isDarkMode WRITE setDarkMode NOTIFY darkModeChanged)
     Q_PROPERTY(QString systemFont READ systemFont WRITE setSystemFont)
     Q_PROPERTY(QString systemFixedFont READ systemFixedFont WRITE setSystemFixedFont)
     Q_PROPERTY(qreal systemFontPointSize READ systemFontPointSize WRITE setSystemFontPointSize)
     Q_PROPERTY(qreal devicePixelRatio READ devicePixelRatio WRITE setDevicePixelRatio)
+    Q_PROPERTY(QString wallpaper READ wallpaper WRITE setWallpaper NOTIFY wallpaperChanged)
 
 public:
     ThemeManager(QObject *parent = nullptr);
@@ -50,10 +51,14 @@ public:
     qreal devicePixelRatio();
     void setDevicePixelRatio(qreal ratio);
 
+    QString wallpaper();
+    void setWallpaper(const QString &path);
+
     void initGtkConfig();
 
 signals:
     void darkModeChanged(bool darkMode);
+    void wallpaperChanged(QString path);
 
 private:
     void updateGtkFont();
@@ -62,6 +67,7 @@ private:
 private:
     QSettings *m_settings;
     bool m_isDarkMode;
+    QString m_wallpaperPath;
 };
 
 #endif
