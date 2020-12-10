@@ -9,6 +9,9 @@ class DesktopView : public QQuickView
 
 public:
     explicit DesktopView(QQuickView *parent = nullptr);
+
+private slots:
+    void screenGeometryChanged();
 };
 
 #endif // DESKTOPVIEW_H
