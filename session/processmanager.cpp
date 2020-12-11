@@ -6,11 +6,22 @@
 #include <QSettings>
 #include <QDebug>
 #include <QTimer>
+#include <QThread>
 #include <QDir>
 
 ProcessManager::ProcessManager(QObject *parent)
     : QObject(parent)
 {
+}
+
+ProcessManager::~ProcessManager()
+{
+    QMapIterator<QString, QProcess *> i(m_systemProcess);
+    while (i.hasNext()) {
+        i.next();
+        QProcess *p = i.value();
+        delete p;
+    }
 }
 
 void ProcessManager::start()
@@ -62,6 +73,10 @@ void ProcessManager::loadSystemProcess()
         process->setArguments(pair.second);
         process->start();
         process->waitForStarted();
+
+        if (pair.first == "cyber-settings-daemon") {
+            QThread::msleep(600);
+        }
 
         qDebug() << "Load DE components: " << pair.first << pair.second;
 

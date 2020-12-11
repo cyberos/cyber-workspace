@@ -11,6 +11,7 @@ class ProcessManager : public QObject
 
 public:
     explicit ProcessManager(QObject *parent = nullptr);
+    ~ProcessManager();
 
     void start();
     void logout();
