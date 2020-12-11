@@ -56,7 +56,7 @@ ThemeManager::ThemeManager(QObject *parent)
 
     // init value
     m_isDarkMode = m_settings->value("DarkMode", false).toBool();
-    m_wallpaperPath = m_settings->value("Wallpaper", "").toString();
+    m_wallpaperPath = m_settings->value("Wallpaper", "/usr/share/backgrounds/cyber/cyber-blue-notext.png").toString();
 
     // Start the DE and need to update the settings agin.
     initGtkConfig();

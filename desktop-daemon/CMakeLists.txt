@@ -19,3 +19,4 @@ target_link_libraries(cyber-desktop-daemon
 )
 
 install(TARGETS cyber-desktop-daemon RUNTIME DESTINATION /usr/bin)
+install(FILES defaultwallpapers/*.png DESTINATION /usr/share/backgrounds/cyber)

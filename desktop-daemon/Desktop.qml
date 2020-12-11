@@ -11,21 +11,11 @@ Item {
         id: settings
     }
 
-    // if the wallpaper file is not found
-    // the background color is displayed
-    Rectangle {
-        id: background
-        anchors.fill: parent
-        color: "#247FBC"
-        visible: !wallpaper.visible
-    }
-
     Image {
         id: wallpaper
         anchors.fill: parent
         source: "file://" + settings.wallpaper
         fillMode: Image.PreserveAspectCrop
-        visible: status == Image.Ready
         clip: true
     }
 }
