@@ -17,6 +17,7 @@ target_link_libraries(cyber-desktop-daemon
     Qt5::QuickControls2
     KF5::WindowSystem
 )
-
+set(WALLPAPER_DEST /usr/share/backgrounds/cyber)
 install(TARGETS cyber-desktop-daemon RUNTIME DESTINATION /usr/bin)
-install(FILES defaultwallpapers/*.png DESTINATION /usr/share/backgrounds/cyber)
+install(FILES defaultwallpapers/cyber-blue-notext.png DESTINATION ${WALLPAPER_DEST})
+install(FILES defaultwallpapers/cyber-blue.png DESTINATION ${WALLPAPER_DEST})
