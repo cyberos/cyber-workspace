@@ -58,6 +58,7 @@ ThemeManager::ThemeManager(QObject *parent)
     m_isDarkMode = m_settings->value("DarkMode", false).toBool();
     m_darkModeDimsWallpaer = m_settings->value("DarkModeDimsWallpaer", false).toBool();
     m_wallpaperPath = m_settings->value("Wallpaper", "/usr/share/backgrounds/cyber/cyber-blue-notext.png").toString();
+    m_accentColor = m_settings->value("AccentColor", 0).toInt();
 
     // Start the DE and need to update the settings agin.
     initGtkConfig();
@@ -95,6 +96,22 @@ void ThemeManager::setDarkModeDimsWallpaer(bool value)
     m_settings->setValue("DarkModeDimsWallpaer", m_darkModeDimsWallpaer);
 
     emit darkModeDimsWallpaerChanged();
+}
+
+int ThemeManager::accentColor()
+{
+    return m_settings->value("AccentColor", 0).toInt();
+}
+
+void ThemeManager::setAccentColor(int accentColor)
+{
+    if (m_accentColor == accentColor)
+        return;
+    
+    m_accentColor = accentColor;
+    m_settings->setValue("AccentColor", m_accentColor);
+
+    emit accentColorChanged(m_accentColor);
 }
 
 QString ThemeManager::systemFont()

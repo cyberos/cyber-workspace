@@ -22,6 +22,9 @@
     <method name="setWallpaper">
         <arg name="path" type="s" direction="in"/>
     </method>
+    <method name="setAccentColor">
+        <arg name="accentColor" type="i" direction="in"/>
+    </method>
 
     <property name="isDarkMode" type="b" access="read"/>
     <property name="darkModeDimsWallpaer" type="b" access="read"/>
@@ -30,6 +33,7 @@
     <property name="systemFontPointSize" type="d" access="read"/>
     <property name="devicePixelRatio" type="d" access="read"/>
     <property name="wallpaper" type="s" access="read"/>
+    <property name="accentColor" type="i" access="read"/>
 
     <signal name="darkModeChanged">
         <arg type="b"/>
@@ -38,6 +42,9 @@
         <arg type="s"/>
     </signal>
     <signal name="darkModeDimsWallpaerChanged">
+    </signal>
+    <signal name="accentColorChanged">
+        <arg type="i"/>
     </signal>
   </interface>
 </node>
