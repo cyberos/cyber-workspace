@@ -56,6 +56,7 @@ ThemeManager::ThemeManager(QObject *parent)
 
     // init value
     m_isDarkMode = m_settings->value("DarkMode", false).toBool();
+    m_darkModeDimsWallpaer = m_settings->value("DarkModeDimsWallpaer", false).toBool();
     m_wallpaperPath = m_settings->value("Wallpaper", "/usr/share/backgrounds/cyber/cyber-blue-notext.png").toString();
 
     // Start the DE and need to update the settings agin.
@@ -78,6 +79,22 @@ void ThemeManager::setDarkMode(bool darkMode)
     updateGtkDarkTheme();
 
     emit darkModeChanged(m_isDarkMode);
+}
+
+bool ThemeManager::darkModeDimsWallpaer() const
+{
+    return m_darkModeDimsWallpaer;
+}
+
+void ThemeManager::setDarkModeDimsWallpaer(bool value)
+{
+    if (m_darkModeDimsWallpaer == value)
+        return;
+
+    m_darkModeDimsWallpaer = value;
+    m_settings->setValue("DarkModeDimsWallpaer", m_darkModeDimsWallpaer);
+
+    emit darkModeDimsWallpaerChanged();
 }
 
 QString ThemeManager::systemFont()

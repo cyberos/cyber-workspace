@@ -13,6 +13,7 @@ class Battery : public QObject
     Q_PROPERTY(int type READ type)
     Q_PROPERTY(int chargePercent READ chargePercent NOTIFY chargePercentChanged)
     Q_PROPERTY(int capacity READ capacity NOTIFY capacityChanged)
+    Q_PROPERTY(int voltage READ voltage NOTIFY voltageChanged)
     Q_PROPERTY(int isRechargeable READ isRechargeable)
     Q_PROPERTY(int isPowerSupply READ isPowerSupply)
     Q_PROPERTY(int chargeState READ chargeState NOTIFY chargeStateChanged)

@@ -16,6 +16,7 @@ target_link_libraries(cyber-desktop-daemon
     Qt5::Quick
     Qt5::QuickControls2
     KF5::WindowSystem
+    MeuiKit
 )
 set(WALLPAPER_DEST /usr/share/backgrounds/cyber)
 install(TARGETS cyber-desktop-daemon RUNTIME DESTINATION /usr/bin)

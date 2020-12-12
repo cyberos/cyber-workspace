@@ -8,14 +8,17 @@ class Settings : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString wallpaper READ wallpaper NOTIFY wallpaperChanged)
+    Q_PROPERTY(bool dimsWallpaper READ dimsWallpaper NOTIFY dimsWallpaperChanged)
 
 public:
     explicit Settings(QObject *parent = nullptr);
 
     QString wallpaper() const;
+    bool dimsWallpaper() const;
 
 signals:
     void wallpaperChanged();
+    void dimsWallpaperChanged();
 
 private slots:
     void onWallpaperChanged(QString);
