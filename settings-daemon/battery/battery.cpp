@@ -46,17 +46,6 @@ void Battery::init()
         m_settings = new QSettings(QStringLiteral("cyberos"), QStringLiteral("PrimaryBattery"));
         m_lastChargedPercent = m_settings->value("LastChargedPercent", 0).toInt();
         m_lastChargedSecs = m_settings->value("LastChargedSecs").toLongLong();
-
-        // m_refreshTimer.setInterval(500);
-        // m_refreshTimer.start();
-        // connect(&m_refreshTimer, &QTimer::timeout, this, [=] {
-        //     QDBusInterface iface(UP_DBUS_SERVICE, m_device->udi(), UP_DBUS_INTERFACE_DEVICE,
-        //                          QDBusConnection::systemBus());
-        //     if (iface.isValid()) {
-        //         iface.call("Refresh");
-        //         slotChanged();
-        //     }
-        // });
     }
 }
 
@@ -261,17 +250,24 @@ QString Battery::formatDuration(qlonglong seconds) const
 {
     const int minutes = seconds / 60;
     const int hours = minutes / 60;
+    const int days = hours / 24;
     const int minutesRemainder = minutes % 60;
 
     const QString minutesString = minutesRemainder > 9 ? QString::number(minutesRemainder)
                                                        : QStringLiteral("0") + QString::number(minutesRemainder);
 
     QString result;
-    if (hours > 0) {
-        result.push_back(QString::number(hours) + tr("h"));
+
+    if (days > 0) {
+        result.push_back(QString("%1 %2").arg(days).arg(tr("d")));
+        result.push_back(" ");
     }
 
-    result.push_back(" ");
+    if (hours > 0) {
+        result.push_back(QString("%1 %2").arg(hours).arg(tr("h")));
+        result.push_back(" ");
+    }
+
     result.push_back(QString::number(minutesRemainder) + tr("m"));
 
     return result;
