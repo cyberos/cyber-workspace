@@ -278,7 +278,7 @@ QString Battery::statusString() const
     if (chargeState() == Battery::Charging) {
         return QString("%1 ").arg(formatDuration(remainingTime())) + tr("until fully charged.");
     } else if (chargeState() == Battery::Discharging) {
-        return QString(" %1").arg(formatDuration(remainingTime())) + tr("remaining.");
+        return QString("%1 ").arg(formatDuration(remainingTime())) + tr("remaining.");
     } else if (chargeState() == Battery::FullyCharged) {
         return tr("Fully charged.");
     }
