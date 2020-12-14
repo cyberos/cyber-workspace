@@ -5,7 +5,14 @@
 #include <QDateTime>
 #include <QDebug>
 
+enum TimeConstants {
+    SecsInDay = 86400,
+    SecsInHour = 3600,
+    SecsInMinute = 60
+};
+
 // ref: https://upower.freedesktop.org/docs/Device.html
+//      kf5solid
 
 Battery::Battery(UPowerDevice *device, QObject *parent)
     : QObject(parent)
@@ -248,27 +255,31 @@ qlonglong Battery::remainingTime() const
 
 QString Battery::formatDuration(qlonglong seconds) const
 {
-    const int minutes = seconds / 60;
-    const int hours = minutes / 60;
-    const int days = hours / 24;
-    const int minutesRemainder = minutes % 60;
-
-    const QString minutesString = minutesRemainder > 9 ? QString::number(minutesRemainder)
-                                                       : QStringLiteral("0") + QString::number(minutesRemainder);
-
     QString result;
+    quint64 secs = seconds;
 
-    if (days > 0) {
-        result.push_back(QString("%1%2").arg(days).arg(tr("d")));
-        result.push_back(" ");
-    }
+    int days = secs / SecsInDay;
+    secs = secs % SecsInDay;
+    int hours = secs / SecsInHour;
+    secs = secs % SecsInHour;
+    int minutes = secs / SecsInMinute;
+
+    if (days > 0)
+        result.push_back(QString("%1d").arg(days));
 
     if (hours > 0) {
-        result.push_back(QString("%1%2").arg(hours).arg(tr("h")));
-        result.push_back(" ");
+        if (days > 0)
+            result.push_back(" ");
+
+        result.push_back(QString("%1h").arg(hours));
     }
 
-    result.push_back(QString::number(minutesRemainder) + tr("m"));
+    if (minutes > 0) {
+        if (hours > 0)
+            result.push_back(" ");
+
+        result.push_back(QString("%1h").arg(minutes));
+    }
 
     return result;
 }
