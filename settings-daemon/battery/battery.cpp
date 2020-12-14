@@ -278,7 +278,7 @@ QString Battery::formatDuration(qlonglong seconds) const
         if (hours > 0)
             result.push_back(" ");
 
-        result.push_back(QString("%1h").arg(minutes));
+        result.push_back(QString("%1m").arg(minutes));
     }
 
     return result;
