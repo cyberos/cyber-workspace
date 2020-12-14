@@ -259,12 +259,12 @@ QString Battery::formatDuration(qlonglong seconds) const
     QString result;
 
     if (days > 0) {
-        result.push_back(QString("%1 %2").arg(days).arg(tr("d")));
+        result.push_back(QString("%1%2").arg(days).arg(tr("d")));
         result.push_back(" ");
     }
 
     if (hours > 0) {
-        result.push_back(QString("%1 %2").arg(hours).arg(tr("h")));
+        result.push_back(QString("%1%2").arg(hours).arg(tr("h")));
         result.push_back(" ");
     }
 

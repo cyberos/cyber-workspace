@@ -81,7 +81,11 @@ void ProcessManager::loadSystemProcess()
         qDebug() << "Load DE components: " << pair.first << pair.second;
 
         // Add to map
-        m_systemProcess.insert(pair.first, process);
+        if (process->exitCode() == 0) {
+            m_autoStartProcess.insert(pair.first, process);
+        } else {
+            process->deleteLater();
+        }
     }
 }
 
