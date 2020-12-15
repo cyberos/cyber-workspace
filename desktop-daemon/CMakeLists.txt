@@ -18,7 +18,4 @@ target_link_libraries(cyber-desktop-daemon
     KF5::WindowSystem
     MeuiKit
 )
-set(WALLPAPER_DEST /usr/share/backgrounds/cyber)
 install(TARGETS cyber-desktop-daemon RUNTIME DESTINATION /usr/bin)
-install(FILES defaultwallpapers/cyber-blue-notext.png DESTINATION ${WALLPAPER_DEST})
-install(FILES defaultwallpapers/cyber-blue.png DESTINATION ${WALLPAPER_DEST})
