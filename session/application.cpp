@@ -67,8 +67,9 @@ void Application::initEnvironments()
 
 void Application::initLanguage()
 {
-    // en_US
-    QString str = "en_US.UTF-8";
+    QSettings settings(QSettings::UserScope, "cyberos", "language");
+    QString value = settings.value("language", "en_US").toString();
+    QString str = QString("%1.UTF-8").arg(value);
 
     const auto lcValues = {
         "LANG", "LC_NUMERIC", "LC_TIME", "LC_MONETARY", "LC_MEASUREMENT", "LC_COLLATE", "LC_CTYPE"
@@ -81,7 +82,6 @@ void Application::initLanguage()
         }
     }
 
-    const QString value = "en_US";
     if (!value.isEmpty()) {
         qputenv("LANGUAGE", value.toUtf8());
     }

@@ -15,6 +15,8 @@ file (GLOB_RECURSE SRCS
   "brightness/*.c"
   "battery/*.cpp"
   "battery/*.h"
+  "language/*.cpp"
+  "language/*.h"
 )
 
 set(SOURCES ${SRCS})
@@ -34,6 +36,9 @@ qt5_add_dbus_adaptor(DBUS_SOURCES
 qt5_add_dbus_adaptor(DBUS_SOURCES
                      battery/org.cyber.PrimaryBattery.xml
                      battery/battery.h Battery)
+qt5_add_dbus_adaptor(DBUS_SOURCES
+                     language/org.cyber.Language.xml
+                     language/language.h Language)
 
 set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 

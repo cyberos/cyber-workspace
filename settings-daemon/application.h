@@ -25,6 +25,7 @@
 #include "theme/thememanager.h"
 #include "brightness/brightnessmanager.h"
 #include "battery/upowermanager.h"
+#include "language/language.h"
 
 class Application : public QApplication
 {
@@ -40,6 +41,7 @@ private:
     ThemeManager *m_themeManager;
     BrightnessManager *m_brightnessManager;
     UPowerManager *m_upowerManager;
+    Language *m_language;
 };
 
 #endif // APPLICATION_H

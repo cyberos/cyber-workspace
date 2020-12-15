@@ -17,24 +17,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "application.h"
-#include "dbusadaptor.h"
-#include <QStandardPaths>
-#include <QProcess>
-#include <QTimer>
-#include <QFile>
-#include <QDebug>
-#include <QDir>
+#ifndef LANGUAGE_H
+#define LANGUAGE_H
 
-Application::Application(int &argc, char **argv)
-    : QApplication(argc, argv)
-    , m_audioManager(new AudioManager(this))
-    , m_themeManager(new ThemeManager(this))
-    , m_brightnessManager(new BrightnessManager(this))
-    , m_upowerManager(new UPowerManager(this))
-    , m_language(new Language(this))
+#include <QObject>
+#include <QSettings>
+
+class Language : public QObject
 {
-    new DBusAdaptor(this);
-    // connect to D-Bus and register as an object:
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.cyber.Settings"));
-}
+    Q_OBJECT
+    Q_PROPERTY(QString languageCode READ languageCode WRITE setLanguage NOTIFY languageChanged)
+
+public:
+    Language(QObject *parent = nullptr);
+
+    QString languageCode() const;
+    void setLanguage(const QString &code);
+
+signals:
+    void languageChanged();
+
+private:
+    QSettings *m_settings;
+};
+
+#endif
