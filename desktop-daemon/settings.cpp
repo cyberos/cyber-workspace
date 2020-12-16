@@ -1,4 +1,5 @@
 #include "settings.h"
+#include <QProcess>
 
 Settings::Settings(QObject *parent)
     : QObject(parent)
@@ -23,6 +24,14 @@ QString Settings::wallpaper() const
 bool Settings::dimsWallpaper() const
 {
     return m_interface.property("darkModeDimsWallpaer").toBool();
+}
+
+void Settings::launch(const QString &command, const QStringList &args)
+{
+    QProcess process;
+    process.setProgram(command);
+    process.setArguments(args);
+    process.startDetached();
 }
 
 void Settings::onWallpaperChanged(QString path)

@@ -13,6 +13,21 @@ Item {
         id: settings
     }
 
+    Menu {
+        id: menu
+
+        MenuItem {
+            text: qsTr("Change wallpaper")
+            onTriggered: settings.launch("cyber-settings", ["-m", "wallpaper"])
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.RightButton
+        onClicked: menu.popup()
+    }
+
     Image {
         id: wallpaper
         anchors.fill: parent
