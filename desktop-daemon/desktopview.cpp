@@ -15,16 +15,15 @@ DesktopView::DesktopView(QQuickView *parent)
     KWindowSystem::setState(winId(), NET::KeepBelow);
 
     setScreen(qGuiApp->primaryScreen());
-    screenGeometryChanged();
     setResizeMode(QQuickView::SizeRootObjectToView);
     setSource(QStringLiteral("qrc:/Desktop.qml"));
+    screenGeometryChanged();
 
-    connect(qGuiApp->primaryScreen(), &QScreen::geometryChanged,
-            this, &DesktopView::screenGeometryChanged, Qt::UniqueConnection);
+    connect(qGuiApp->primaryScreen(), &QScreen::virtualGeometryChanged, this, &DesktopView::screenGeometryChanged);
+    connect(qGuiApp->primaryScreen(), &QScreen::geometryChanged, this, &DesktopView::screenGeometryChanged);
 }
 
 void DesktopView::screenGeometryChanged()
 {
-    const QRect screenGeometry = qGuiApp->primaryScreen()->geometry();
-    setGeometry(screenGeometry);
+    setGeometry(qGuiApp->primaryScreen()->geometry());
 }
