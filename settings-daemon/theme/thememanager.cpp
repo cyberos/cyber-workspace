@@ -60,7 +60,7 @@ ThemeManager::ThemeManager(QObject *parent)
     m_wallpaperPath = m_settings->value("Wallpaper", "/usr/share/backgrounds/cyber/unsplash-2.jpg").toString();
     m_accentColor = m_settings->value("AccentColor", 0).toInt();
 
-    // Start the DE and need to update the settings agin.
+    // Start the DE and need to update the settings again.
     initGtkConfig();
 }
 
