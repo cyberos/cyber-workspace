@@ -22,6 +22,7 @@ class Battery : public QObject
     Q_PROPERTY(int lastChargedPercent READ lastChargedPercent NOTIFY lastChargedPercentChanged)
     Q_PROPERTY(quint64 lastChargedSecs READ lastChargedSecs NOTIFY lastChargedSecsChanged)
     Q_PROPERTY(QString lastChargedTime READ lastChargedTime NOTIFY lastChargedSecsChanged)
+    Q_PROPERTY(QString udi READ udi)
 
 public:
     /**
@@ -135,6 +136,8 @@ public:
     quint64 lastChargedSecs() const;
 
     QString lastChargedTime() const;
+
+    QString udi() const { return m_device->udi(); }
 
 signals:
     void presentStateChanged(bool newState);
