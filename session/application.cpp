@@ -95,7 +95,8 @@ void Application::initScreenScaleFactors()
 
 bool Application::syncDBusEnvironment()
 {
-    int exitCode;
+    int exitCode = 0;
+
     // At this point all environment variables are set, let's send it to the DBus session server to update the activation environment
     if (!QStandardPaths::findExecutable(QStringLiteral("dbus-update-activation-environment")).isEmpty()) {
         exitCode = runSync(QStringLiteral("dbus-update-activation-environment"), { QStringLiteral("--systemd"), QStringLiteral("--all") });
