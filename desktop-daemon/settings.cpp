@@ -1,4 +1,6 @@
 #include "settings.h"
+
+#include <QDBusServiceWatcher>
 #include <QProcess>
 
 Settings::Settings(QObject *parent)
@@ -7,13 +9,12 @@ Settings::Settings(QObject *parent)
                   "/Theme", "org.cyber.Theme",
                   QDBusConnection::sessionBus(), this)
 {
-    if (m_interface.isValid()) {
-        connect(&m_interface, SIGNAL(wallpaperChanged(QString)), this, SLOT(onWallpaperChanged(QString)));
-        connect(&m_interface, SIGNAL(darkModeDimsWallpaerChanged()), this, SIGNAL(dimsWallpaperChanged()));
+    QDBusServiceWatcher *watcher = new QDBusServiceWatcher(this);
+    watcher->setConnection(QDBusConnection::sessionBus());
+    watcher->addWatchedService("org.cyber.Settings");
+    connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &Settings::init);
 
-        m_wallpaper = m_interface.property("wallpaper").toString();
-        emit wallpaperChanged();
-    }
+    init();
 }
 
 QString Settings::wallpaper() const
@@ -32,6 +33,17 @@ void Settings::launch(const QString &command, const QStringList &args)
     process.setProgram(command);
     process.setArguments(args);
     process.startDetached();
+}
+
+void Settings::init()
+{
+    if (m_interface.isValid()) {
+        connect(&m_interface, SIGNAL(wallpaperChanged(QString)), this, SLOT(onWallpaperChanged(QString)));
+        connect(&m_interface, SIGNAL(darkModeDimsWallpaerChanged()), this, SIGNAL(dimsWallpaperChanged()));
+
+        m_wallpaper = m_interface.property("wallpaper").toString();
+        emit wallpaperChanged();
+    }
 }
 
 void Settings::onWallpaperChanged(QString path)

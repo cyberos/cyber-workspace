@@ -23,6 +23,7 @@ signals:
     void dimsWallpaperChanged();
 
 private slots:
+    void init();
     void onWallpaperChanged(QString);
 
 private:

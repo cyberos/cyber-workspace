@@ -2,6 +2,8 @@ import QtQuick 2.4
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
+
+import Qt.labs.platform 1.0
 import org.cyber.Desktop 1.0
 import MeuiKit 1.0 as Meui
 
@@ -25,7 +27,7 @@ Item {
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.RightButton
-        onClicked: menu.popup()
+        onClicked: menu.open()
     }
 
     Image {
