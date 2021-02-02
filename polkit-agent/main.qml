@@ -13,6 +13,12 @@ Rectangle {
     border.color: Qt.rgba(0, 0, 0, 0.4)
     border.width: 1
 
+    Meui.WindowShadow {
+        view: rootWindow
+        geometry: Qt.rect(root.x, root.y, root.width, root.height)
+        radius: root.radius
+    }
+
     RowLayout {
         id: mainLayout
         anchors.fill: parent
