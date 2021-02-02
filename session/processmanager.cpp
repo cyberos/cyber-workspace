@@ -75,7 +75,7 @@ void ProcessManager::loadSystemProcess()
         process->waitForStarted();
 
         if (pair.first == "cyber-settings-daemon") {
-            QThread::msleep(600);
+            QThread::msleep(800);
         }
 
         qDebug() << "Load DE components: " << pair.first << pair.second;
