@@ -62,7 +62,6 @@ void ProcessManager::loadSystemProcess()
 
     // Desktop components
     list << qMakePair(QString("cyber-desktop-daemon"), QStringList());
-    list << qMakePair(QString("cyber-statusbar"), QStringList());
     list << qMakePair(QString("cyber-dock"), QStringList());
     list << qMakePair(QString("cyber-launcher"), QStringList());
 
