@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 PandaOS Team.
+ * Copyright (C) 2020 CyberOS Team.
  *
  * Author:     rekols <rekols@foxmail.com>
  *

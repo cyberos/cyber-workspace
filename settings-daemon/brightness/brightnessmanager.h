@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 ~ 2020 PandaOS Team.
+ * Copyright (C) 2017 ~ 2020 CyberOS Team.
  *
  * Author:     rekols <rekols@foxmail.com>
  *
@@ -26,6 +26,7 @@
 class BrightnessManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool brightnessEnabled READ brightnessEnabled)
     Q_PROPERTY(int maxBrightness READ maxBrightness)
     Q_PROPERTY(int brightness READ brightness WRITE setValue)
 
@@ -35,6 +36,7 @@ public:
 
     int maxBrightness();
     int brightness();
+    bool brightnessEnabled();
 
     void setValue(int value);
 

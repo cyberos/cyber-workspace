@@ -7,6 +7,7 @@
 
     <property name="maxBrightness" type="i" access="read"/>
     <property name="brightness" type="i" access="read"/>
+    <property name="brightnessEnabled" type="b" access="read"/>
 
     <signal name="brightnessChanged"></signal>
   </interface>

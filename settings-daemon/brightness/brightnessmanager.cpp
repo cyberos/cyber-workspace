@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 PandaOS Team.
+ * Copyright (C) 2020 CyberOS Team.
  *
  * Author:     rekols <rekols@foxmail.com>
  *
@@ -219,4 +219,13 @@ void BrightnessManager::handleFileChanged(const QString &path)
         m_actualBacklight = newValue;
         Q_EMIT brightnessChanged();
     }
+}
+
+bool BrightnessManager::brightnessEnabled()
+{
+    QDir dir;
+    dir.setPath(PREFIX);
+    dir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    QStringList dirList = dir.entryList();
+    return !dirList.isEmpty();
 }
