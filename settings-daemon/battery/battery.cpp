@@ -265,20 +265,20 @@ QString Battery::formatDuration(qlonglong seconds) const
     int minutes = secs / SecsInMinute;
 
     if (days > 0)
-        result.push_back(QString("%1d").arg(days));
+        result.push_back(QString("%1%2").arg(days).arg(tr("d")));
 
     if (hours > 0) {
         if (days > 0)
             result.push_back(" ");
 
-        result.push_back(QString("%1h").arg(hours));
+        result.push_back(QString("%1%2").arg(hours).arg(tr("h")));
     }
 
     if (minutes > 0) {
         if (hours > 0)
             result.push_back(" ");
 
-        result.push_back(QString("%1m").arg(minutes));
+        result.push_back(QString("%1%2").arg(minutes).arg(tr("m")));
     }
 
     return result;

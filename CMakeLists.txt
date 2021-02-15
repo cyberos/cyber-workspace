@@ -10,7 +10,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(QT Core Gui Widgets Quick QuickControls2 DBus X11Extras)
+set(QT Core Gui Widgets Quick QuickControls2 DBus X11Extras LinguistTools)
 find_package(Qt5 REQUIRED ${QT})
 find_package(MeuiKit REQUIRED)
 find_package(PkgConfig REQUIRED)

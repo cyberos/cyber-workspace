@@ -25,6 +25,8 @@
 #include <QFile>
 #include <QDebug>
 #include <QDir>
+#include <QTranslator>
+#include <QLocale>
 
 Application::Application(int &argc, char **argv)
     : QApplication(argc, argv)
@@ -37,4 +39,16 @@ Application::Application(int &argc, char **argv)
     new DBusAdaptor(this);
     // connect to D-Bus and register as an object:
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.cyber.Settings"));
+
+    // Translations
+    QLocale locale;
+    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/cyber-settings-daemon/translations/").arg(locale.name());
+    if (QFile::exists(qmFilePath)) {
+        QTranslator *translator = new QTranslator(QApplication::instance());
+        if (translator->load(qmFilePath)) {
+            QApplication::installTranslator(translator);
+        } else {
+            translator->deleteLater();
+        }
+    }
 }

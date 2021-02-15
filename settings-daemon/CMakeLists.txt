@@ -52,4 +52,10 @@ target_link_libraries(${TARGET}
         ${PULSEAUDIO_LIBRARY}
 )
 
+file(GLOB TS_FILES translations/*.ts)
+qt5_create_translation(QM_FILES ${TS_FILES})
+add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+add_dependencies(${TARGET} translations)
+
 install(TARGETS ${TARGET} DESTINATION /usr/bin)
+install(FILES ${QM_FILES} DESTINATION /usr/share/${TARGET}/translations)

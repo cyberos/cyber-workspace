@@ -19,3 +19,9 @@ target_link_libraries(cyber-desktop-daemon
     MeuiKit
 )
 install(TARGETS cyber-desktop-daemon RUNTIME DESTINATION /usr/bin)
+
+file(GLOB TS_FILES translations/*.ts)
+qt5_create_translation(QM_FILES ${TS_FILES})
+add_custom_target(desktop-translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
+add_dependencies(cyber-desktop-daemon desktop-translations)
+install(FILES ${QM_FILES} DESTINATION /usr/share/cyber-desktop-daemon/translations)
