@@ -6,17 +6,17 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation>d. </translation>
+        <translation>d.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation>godz. </translation>
+        <translation>godz.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation>min. </translation>
+        <translation>min.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
