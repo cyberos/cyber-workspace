@@ -11,7 +11,7 @@
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation>重新起动</translation>
+        <translation>重新启动</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
