@@ -6,7 +6,7 @@
     <message>
         <location filename="../main.qml" line="62"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Password</translation>
     </message>
     <message>
         <location filename="../main.qml" line="80"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../main.qml" line="87"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Annullare</translation>
     </message>
 </context>
 </TS>
