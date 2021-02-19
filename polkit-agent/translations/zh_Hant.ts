@@ -6,7 +6,7 @@
     <message>
         <location filename="../main.qml" line="62"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">密碼</translation>
     </message>
     <message>
         <location filename="../main.qml" line="80"/>
