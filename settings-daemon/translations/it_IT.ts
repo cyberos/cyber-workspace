@@ -92,7 +92,7 @@
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">sconosciuto</translation>
     </message>
 </context>
 </TS>
