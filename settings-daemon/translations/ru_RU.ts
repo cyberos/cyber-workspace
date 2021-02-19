@@ -56,37 +56,37 @@
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Литий-ионный</translation>
+        <translation>Литий-ионный</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Литий-полимерный</translation>
+        <translation>Литий-полимерный</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Литий-фосфат железа</translation>
+        <translation>Литий-фосфат железа</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Свинцово-кислотные</translation>
+        <translation>Свинцово-кислотные</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Никель кадмий</translation>
+        <translation>Никель кадмий</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Никель-металлогидрид</translation>
+        <translation>Никель-металлогидрид</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
