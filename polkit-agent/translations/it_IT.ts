@@ -6,12 +6,12 @@
     <message>
         <location filename="../main.qml" line="62"/>
         <source>Password</source>
-        <translation type="unfinished">Password</translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../main.qml" line="80"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Finito</translation>
     </message>
     <message>
         <location filename="../main.qml" line="87"/>
