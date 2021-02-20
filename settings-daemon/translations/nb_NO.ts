@@ -6,42 +6,42 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished"></translation>
+        <translation>d</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished"></translation>
+        <translation>t</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished"></translation>
+        <translation>m</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation type="unfinished"></translation>
+        <translation>til full opplading.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished"></translation>
+        <translation>gjenstående.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fullt oppladet.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished"></translation>
+        <translation>nå</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished"></translation>
+        <translation>siden</translation>
     </message>
 </context>
 <context>
@@ -50,49 +50,49 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 batteri</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Litium-ion</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Litium-polymer</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Litium-jernfosfat</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Blysyre</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Nikkel-kadmium</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Mikke-metallhydrid</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ukjent</translation>
     </message>
 </context>
 </TS>
