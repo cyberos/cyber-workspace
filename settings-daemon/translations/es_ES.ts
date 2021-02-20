@@ -6,42 +6,42 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished"></translation>
+        <translation>d</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished"></translation>
+        <translation>h</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished"></translation>
+        <translation>m</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation type="unfinished"></translation>
+        <translation>hasta completar la carga.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished"></translation>
+        <translation>restantes.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished"></translation>
+        <translation>Carga completa.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished"></translation>
+        <translation>ahora</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished"></translation>
+        <translation>atrás</translation>
     </message>
 </context>
 <context>
@@ -50,43 +50,43 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>Batería de %1</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>iones de litio</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>polímero de litio</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>ferrofosfato de litio</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>plomo-ácido</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>níquel-cadmio</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished"></translation>
+        <translation>níquel-metalhidruro</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
