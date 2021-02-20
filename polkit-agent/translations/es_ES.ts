@@ -11,7 +11,7 @@
     <message>
         <location filename="../main.qml" line="80"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hecho</translation>
     </message>
     <message>
         <location filename="../main.qml" line="87"/>
