@@ -2,7 +2,6 @@
 
 #include <QGuiApplication>
 #include <QScreen>
-#include <QDebug>
 
 #include <KWindowSystem>
 
@@ -10,7 +9,6 @@ DesktopView::DesktopView(QQuickView *parent, QScreen *screen)
     : QQuickView(parent), 
     m_screen(screen)
 {
-    qDebug() << screen << qGuiApp->primaryScreen();
     setFlags(Qt::Window | Qt::FramelessWindowHint);
     setTitle(tr("Desktop"));
 
