@@ -2,28 +2,31 @@
 
 #include <QGuiApplication>
 #include <QScreen>
+#include <QDebug>
 
 #include <KWindowSystem>
 
-DesktopView::DesktopView(QQuickView *parent)
-    : QQuickView(parent)
+DesktopView::DesktopView(QQuickView *parent, QScreen *screen)
+    : QQuickView(parent), 
+    m_screen(screen)
 {
+    qDebug() << screen << qGuiApp->primaryScreen();
     setFlags(Qt::Window | Qt::FramelessWindowHint);
     setTitle(tr("Desktop"));
 
     KWindowSystem::setType(winId(), NET::Desktop);
     KWindowSystem::setState(winId(), NET::KeepBelow);
 
-    setScreen(qGuiApp->primaryScreen());
+    setScreen(screen);
     setResizeMode(QQuickView::SizeRootObjectToView);
     setSource(QStringLiteral("qrc:/Desktop.qml"));
     screenGeometryChanged();
 
-    connect(qGuiApp->primaryScreen(), &QScreen::virtualGeometryChanged, this, &DesktopView::screenGeometryChanged);
-    connect(qGuiApp->primaryScreen(), &QScreen::geometryChanged, this, &DesktopView::screenGeometryChanged);
+    connect(screen, &QScreen::virtualGeometryChanged, this, &DesktopView::screenGeometryChanged);
+    connect(screen, &QScreen::geometryChanged, this, &DesktopView::screenGeometryChanged);
 }
 
 void DesktopView::screenGeometryChanged()
 {
-    setGeometry(qGuiApp->primaryScreen()->geometry());
+    setGeometry(m_screen->geometry());
 }

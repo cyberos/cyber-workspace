@@ -1,9 +1,11 @@
 #include <QApplication>
+#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QFile>
 #include <QLocale>
 #include <QTranslator>
+#include <QList>
 
 #include "desktopview.h"
 #include "settings.h"
@@ -17,9 +19,9 @@ int main(int argc, char *argv[])
     QLocale locale;
     QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/cyber-desktop-daemon/translations/").arg(locale.name());
     if (QFile::exists(qmFilePath)) {
-        QTranslator *translator = new QTranslator(QApplication::instance());
+        QTranslator *translator = new QTranslator(app.instance());
         if (translator->load(qmFilePath)) {
-            QApplication::installTranslator(translator);
+            QGuiApplication::installTranslator(translator);
         } else {
             translator->deleteLater();
         }
@@ -27,8 +29,15 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Settings>("org.cyber.Desktop", 1, 0, "Settings");
 
-    DesktopView view;
-    view.show();
+    
+    QList<DesktopView*> desktopViews;
+    for (int i = 0; i < app.screens().length(); i++) {
+        desktopViews.append(new DesktopView(nullptr, app.screens()[i]));
+    }
+
+    for (int i = 0; i < desktopViews.length(); i++) {
+        desktopViews[i]->show();
+    }
 
     return app.exec();
 }
