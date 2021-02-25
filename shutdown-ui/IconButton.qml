@@ -9,13 +9,18 @@ Item {
 
     property string text
     property string icon
-    property color hoveredColor: Qt.rgba(255, 255, 255, 0.1)
-    property color pressedColor: Qt.rgba(255, 255, 255, 0.2)
     signal clicked
 
     Rectangle {
         anchors.fill: parent
-        color: mouseArea.pressed ? pressedColor : mouseArea.containsMouse ? hoveredColor : "transparent"
+        color: "white"
+        opacity: mouseArea.pressed ? 0.2 : mouseArea.containsMouse ? 0.1 : 0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 125
+                easing.type: Easing.InOutCubic
+            }
+        }
         radius: 10
     }
 
