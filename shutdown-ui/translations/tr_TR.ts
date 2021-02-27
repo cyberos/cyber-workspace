@@ -6,12 +6,12 @@
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden Başlat</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
