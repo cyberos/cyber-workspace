@@ -16,12 +16,12 @@
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation type="unfinished">Çıkış yap</translation>
+        <translation>Çıkış yap</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Askıya Al</translation>
     </message>
 </context>
 </TS>
