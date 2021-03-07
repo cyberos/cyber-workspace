@@ -16,7 +16,7 @@
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation>注销</translation>
+        <translation>登出</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
