@@ -1,3 +1,22 @@
+/*
+ * Copyright (C) 2021 CyberOS Team.
+ *
+ * Author:     omame <me@omame.tech>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "notification.h"
 
 Notification::Notification(QObject *parent)
@@ -6,71 +25,66 @@ Notification::Notification(QObject *parent)
 
 }
 
-QString* Notification::getSummary()
+QString Notification::getSummary()
 {
-    return m_summary;
+    if (m_summary == nullptr) return QString("");
+    return *m_summary;
 }
 
-QString* Notification::getBody()
+QString Notification::getBody()
 {
-    return m_body;
+    if (m_body == nullptr) return QString("");
+    return *m_body;
 }
 
-QString* Notification::getAppTitle()
+QString Notification::getAppTitle()
 {
-    return m_appTitle;
+    if (m_appTitle == nullptr) return QString("");
+    return *m_appTitle;
 }
 
-QString* Notification::getDesktopFile()
+QString Notification::getDesktopFile()
 {
-    return m_desktopFile;
+    if (m_desktopFile == nullptr) return QString("");
+    return *m_desktopFile;
 }
 
-QString* Notification::getIconPath()
+QString Notification::getIconPath()
 {
-    return m_iconPath;
-}
-
-void Notification::setSummary(QString* summary)
-{
-    if (summary == m_summary) {
-        return;
+    // TODO: if (m_iconPath == nullptr && m_desktopFile != nullptr),
+    //       determine icon path by desktop file
+    if (m_iconPath == nullptr && m_desktopFile != nullptr) {
+        return QString("Placeholder");
     }
-    m_summary = summary;
+    if (m_iconPath == nullptr) return QString("");
+    return *m_iconPath;
+}
+
+void Notification::setSummary(QString summary)
+{
+    m_summary = &summary;
     emit summaryChanged();
 }
 
-void Notification::setBody(QString* body)
+void Notification::setBody(QString body)
 {
-    if (body == m_body) {
-        return;
-    }
-    m_body = body;
+    m_body = &body;
     emit bodyChanged();
 }
 
-void Notification::setAppTitle(QString* appTitle)
+void Notification::setAppTitle(QString appTitle)
 {
-    if (appTitle == m_appTitle) {
-        return;
-    }
-    m_appTitle = appTitle;
+    m_appTitle = &appTitle;
     emit appTitleChanged();
 }
 
-void Notification::setDesktopFile(QString* desktopFile)
+void Notification::setDesktopFile(QString desktopFile)
 {
-    if (desktopFile == m_desktopFile) {
-        return;
-    }
-    m_desktopFile = desktopFile;
+    m_desktopFile = &desktopFile;
 }
 
-void Notification::setIconPath(QString* iconPath)
+void Notification::setIconPath(QString iconPath)
 {
-    if (iconPath == m_iconPath) {
-        return;
-    }
-    m_iconPath = iconPath;
+    m_iconPath = &iconPath;
     emit iconPathChanged();
 }

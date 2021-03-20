@@ -23,30 +23,33 @@
 #include <QObject>
 #include <qqml.h>
 
+// FIXME: Use QStandardPaths::ApplicationsLocation in the future.
+#define ApplicationsDir "/usr/share/applications"
+
 class Notification : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString* summary READ getSummary NOTIFY summaryChanged)
-    Q_PROPERTY(QString* body READ getBody NOTIFY bodyChanged)
-    Q_PROPERTY(QString* appTitle READ getAppTitle NOTIFY appTitleChanged)
-    Q_PROPERTY(QString* iconPath READ getIconPath NOTIFY iconPathChanged)
+    Q_PROPERTY(QString summary READ getSummary NOTIFY summaryChanged)
+    Q_PROPERTY(QString body READ getBody NOTIFY bodyChanged)
+    Q_PROPERTY(QString appTitle READ getAppTitle NOTIFY appTitleChanged)
+    Q_PROPERTY(QString iconPath READ getIconPath NOTIFY iconPathChanged)
     QML_ELEMENT
 
 public:
     explicit Notification(QObject* parent = nullptr);
 
-    QString* getSummary();
-    QString* getBody();
-    QString* getAppTitle();
-    QString* getDesktopFile();
-    QString* getIconPath();
+    QString getSummary();
+    QString getBody();
+    QString getAppTitle();
+    QString getDesktopFile();
+    QString getIconPath();
 
     // These are meant to be called only by DBus hooks in application.cpp, don't use them in other places!
-    void setSummary(QString* summary);
-    void setBody(QString* body);
-    void setAppTitle(QString* appTitle);
-    void setDesktopFile(QString* desktopFile);
-    void setIconPath(QString* iconPath);
+    void setSummary(QString summary);
+    void setBody(QString body);
+    void setAppTitle(QString appTitle);
+    void setDesktopFile(QString desktopFile);
+    void setIconPath(QString iconPath);
 
 private:
     QString* m_summary;
