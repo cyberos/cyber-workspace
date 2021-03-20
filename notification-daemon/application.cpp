@@ -6,9 +6,9 @@
 
 Application::Application(int &argc, char **argv)
     : QApplication(argc, argv)
+    , m_lastID(0)
 {
     new SessionAdaptor(this);
-
 
     // connect to D-Bus and register as an object
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.Notifications"));
@@ -41,5 +41,9 @@ uint Application::Notify(
     int expire_timeout
 ) {
     qDebug() << app_name << replaces_id << app_icon << summary << body << actions << hints << expire_timeout;
-    return 0;
+    
+    int returnID = m_lastID;
+    m_lastID++;
+
+    return returnID;
 }
