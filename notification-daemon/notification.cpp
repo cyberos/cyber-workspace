@@ -27,26 +27,22 @@ Notification::Notification(QObject *parent)
 
 QString Notification::getSummary()
 {
-    if (m_summary == nullptr) return QString("");
-    return *m_summary;
+    return m_summary;
 }
 
 QString Notification::getBody()
 {
-    if (m_body == nullptr) return QString("");
-    return *m_body;
+    return m_body;
 }
 
 QString Notification::getAppTitle()
 {
-    if (m_appTitle == nullptr) return QString("");
-    return *m_appTitle;
+    return m_appTitle;
 }
 
 QString Notification::getDesktopFile()
 {
-    if (m_desktopFile == nullptr) return QString("");
-    return *m_desktopFile;
+    return m_desktopFile;
 }
 
 QString Notification::getIconPath()
@@ -54,37 +50,41 @@ QString Notification::getIconPath()
     // TODO: if (m_iconPath == nullptr && m_desktopFile != nullptr),
     //       determine icon path by desktop file
     if (m_iconPath == nullptr && m_desktopFile != nullptr) {
-        return QString("Placeholder");
+        // DEMO: won't work if desktop file name doesn't match
+        //       the icon
+        QString desktopFile = m_desktopFile;
+        return QString("image://icontheme/") + desktopFile;
     }
     if (m_iconPath == nullptr) return QString("");
-    return *m_iconPath;
+    QString iconPath = m_iconPath;
+    return QString("file://") + iconPath;
 }
 
 void Notification::setSummary(QString summary)
 {
-    m_summary = &summary;
+    m_summary = summary;
     emit summaryChanged();
 }
 
 void Notification::setBody(QString body)
 {
-    m_body = &body;
+    m_body = body;
     emit bodyChanged();
 }
 
 void Notification::setAppTitle(QString appTitle)
 {
-    m_appTitle = &appTitle;
+    m_appTitle = appTitle;
     emit appTitleChanged();
 }
 
 void Notification::setDesktopFile(QString desktopFile)
 {
-    m_desktopFile = &desktopFile;
+    m_desktopFile = desktopFile;
 }
 
 void Notification::setIconPath(QString iconPath)
 {
-    m_iconPath = &iconPath;
+    m_iconPath = iconPath;
     emit iconPathChanged();
 }

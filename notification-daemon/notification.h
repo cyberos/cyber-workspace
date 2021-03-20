@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <qqml.h>
+#include <QDebug>
 
 // FIXME: Use QStandardPaths::ApplicationsLocation in the future.
 #define ApplicationsDir "/usr/share/applications"
@@ -52,11 +53,11 @@ public:
     void setIconPath(QString iconPath);
 
 private:
-    QString* m_summary;
-    QString* m_body;
-    QString* m_appTitle;
-    QString* m_desktopFile;
-    QString* m_iconPath;
+    QString m_summary;
+    QString m_body;
+    QString m_appTitle;
+    QString m_desktopFile;
+    QString m_iconPath;
 
 signals:
     void summaryChanged();
