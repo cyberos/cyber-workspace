@@ -24,6 +24,7 @@
 #include <QString>
 #include <QStringList>
 #include <QVariantMap>
+#include "notification.h"
 
 class Application : public QApplication
 {
@@ -50,6 +51,9 @@ public slots:
 signals:
     void NotificationClosed(uint id, uint reason);
     void ActionInvoked(uint id, const QString& action_key);
+
+private:
+    int m_lastID;
 };
 
 #endif // APPLICATION_H
