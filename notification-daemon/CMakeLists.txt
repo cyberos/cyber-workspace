@@ -12,6 +12,9 @@ set(SOURCES
     application.cpp
     main.cpp
     notification.cpp
+    notificationmanager.cpp
+    iconthemeprovider.cpp
+    qml/resources.qrc
 )
 
 set(QT Core Gui Quick QuickControls2 Widgets DBus)
@@ -19,8 +22,8 @@ find_package(Qt5 REQUIRED ${QT})
 
 qt5_add_dbus_adaptor(DBUS_SOURCES
                      org.freedesktop.Notifications.xml
-                     application.h Application
-                     sessionadaptor SessionAdaptor)
+                     notificationmanager.h NotificationManager
+                     notificationadaptor NotificationAdaptor)
 set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 
 add_executable(${TARGET} ${SOURCES} ${DBUS_SOURCES})

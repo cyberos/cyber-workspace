@@ -20,40 +20,21 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <QApplication>
-#include <QString>
-#include <QStringList>
-#include <QVariantMap>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 #include "notification.h"
+#include "notificationmanager.h"
+#include "iconthemeprovider.h"
 
-class Application : public QApplication
+class Application : public QGuiApplication
 {
     Q_OBJECT
 
 public:
     explicit Application(int &argc, char **argv);
 
-public slots:
-    void CloseNotification(uint id);
-    QStringList GetCapabilities();
-    QString GetServerInformation(QString &vendor, QString &version, QString &spec_version);
-    uint Notify(
-        const QString &app_name,
-        uint replaces_id,
-        const QString &app_icon,
-        const QString &summary,
-        const QString &body,
-        const QStringList &actions,
-        const QVariantMap &hints,
-        int expire_timeout
-    );
-
-signals:
-    void NotificationClosed(uint id, uint reason);
-    void ActionInvoked(uint id, const QString& action_key);
-
 private:
-    int m_lastID;
+    QQmlApplicationEngine m_engine;
 };
 
 #endif // APPLICATION_H

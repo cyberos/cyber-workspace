@@ -47,17 +47,15 @@ QString Notification::getDesktopFile()
 
 QString Notification::getIconPath()
 {
-    // TODO: if (m_iconPath == nullptr && m_desktopFile != nullptr),
-    //       determine icon path by desktop file
     if (m_iconPath == nullptr && m_desktopFile != nullptr) {
-        // DEMO: won't work if desktop file name doesn't match
-        //       the icon
-        QString desktopFile = m_desktopFile;
-        return QString("image://icontheme/") + desktopFile;
+        // FIXME: this is naive, won't work if desktop file name
+        //         doesn't match the icon
+        return QString("image://icontheme/") + m_desktopFile;
     }
-    if (m_iconPath == nullptr) return QString("");
-    QString iconPath = m_iconPath;
-    return QString("file://") + iconPath;
+    if (m_iconPath == QString("")) {
+        return QString("image://icontheme/application-x-desktop");
+    }
+    return QString("file://") + m_iconPath;
 }
 
 void Notification::setSummary(QString summary)
