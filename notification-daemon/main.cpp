@@ -18,10 +18,12 @@
  */
 
 #include "application.h"
+#include "notification.h"
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     Application a(argc, argv);
-    a.setQuitOnLastWindowClosed(false);
     return a.exec();
 }

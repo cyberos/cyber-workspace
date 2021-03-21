@@ -24,7 +24,7 @@
 #include <qqml.h>
 #include <QDebug>
 
-// FIXME: Use QStandardPaths::ApplicationsLocation in the future.
+// FIXME: Use QStandardPaths::ApplicationsLocation.
 #define ApplicationsDir "/usr/share/applications"
 
 class Notification : public QObject
@@ -45,7 +45,8 @@ public:
     QString getDesktopFile();
     QString getIconPath();
 
-    // These are meant to be called only by DBus hooks in application.cpp, don't use them in other places!
+    // These are meant to be called only by DBus hooks in notificationmanager.cpp,
+    // don't use them in other places!
     void setSummary(QString summary);
     void setBody(QString body);
     void setAppTitle(QString appTitle);
