@@ -11,12 +11,12 @@
     <message>
         <location filename="../main.qml" line="80"/>
         <source>Done</source>
-        <translation type="unfinished">בוצע</translation>
+        <translation>ביצוע</translation>
     </message>
     <message>
         <location filename="../main.qml" line="87"/>
         <source>Cancel</source>
-        <translation type="unfinished">לְבַטֵל</translation>
+        <translation>ביטול</translation>
     </message>
 </context>
 </TS>
