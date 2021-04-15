@@ -6,7 +6,7 @@
     <message>
         <location filename="../Desktop.qml" line="22"/>
         <source>Change wallpaper</source>
-        <translation type="unfinished">שנה טפט</translation>
+        <translation>שנה את רקע שולחן העבודה</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../desktopview.cpp" line="12"/>
         <source>Desktop</source>
-        <translation type="unfinished">שולחן עבודה</translation>
+        <translation>שולחן העבודה</translation>
     </message>
 </context>
 </TS>
