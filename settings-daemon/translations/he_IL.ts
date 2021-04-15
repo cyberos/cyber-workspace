@@ -6,17 +6,17 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished">ד</translation>
+        <translation>י</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished">ח</translation>
+        <translation>ש</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished">M</translation>
+        <translation>ח</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
@@ -26,12 +26,12 @@
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished">נוֹתָר.</translation>
+        <translation>נותרים.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished">נטען במלואו.</translation>
+        <translation>טעון במלואו.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
@@ -86,7 +86,7 @@
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">ניקל מטאל הידריד</translation>
+        <translation>ניקל מתכת הידריד</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
