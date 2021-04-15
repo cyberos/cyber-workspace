@@ -6,22 +6,22 @@
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation type="unfinished">לכבות</translation>
+        <translation>כיבוי</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation type="unfinished">לְאַתחֵל</translation>
+        <translation>איתחול</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation type="unfinished">להתנתק</translation>
+        <translation>ניתוק</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation type="unfinished">לְהַשְׁעוֹת</translation>
+        <translation>שינה</translation>
     </message>
 </context>
 </TS>
