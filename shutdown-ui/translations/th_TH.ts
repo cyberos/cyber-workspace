@@ -6,22 +6,22 @@
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation type="unfinished">ปิดตัวลง</translation>
+        <translation>ปิดเครื่อง</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation type="unfinished">รีบูต</translation>
+        <translation>รีบูต</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation type="unfinished">ออกจากระบบ</translation>
+        <translation>ออกจากระบบ</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation type="unfinished">ระงับ</translation>
+        <translation>พักการใช้งาน</translation>
     </message>
 </context>
 </TS>
