@@ -25,6 +25,7 @@
 #include "notification.h"
 #include "notificationmanager.h"
 #include "iconthemeprovider.h"
+#include "qml_notificationbase.h"
 
 class Application : public QGuiApplication
 {

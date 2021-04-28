@@ -22,7 +22,9 @@
 
 #include <QObject>
 #include <qqml.h>
+#include <QFile>
 #include <QDebug>
+#include "desktopproperties.h"
 
 // FIXME: Use QStandardPaths::ApplicationsLocation.
 #define ApplicationsDir "/usr/share/applications"

@@ -14,11 +14,15 @@ set(SOURCES
     notification.cpp
     notificationmanager.cpp
     iconthemeprovider.cpp
+    qml_notificationbase.cpp
+    desktopproperties.cpp
+
     qml/resources.qrc
 )
 
 set(QT Core Gui Quick QuickControls2 Widgets DBus)
 find_package(Qt5 REQUIRED ${QT})
+find_package(KF5WindowSystem REQUIRED)
 
 qt5_add_dbus_adaptor(DBUS_SOURCES
                      org.freedesktop.Notifications.xml
@@ -34,6 +38,8 @@ target_link_libraries(${TARGET}
         Qt5::QuickControls2
         Qt5::Widgets
         Qt5::DBus
+
+        KF5::WindowSystem
 )
 
 install(TARGETS ${TARGET} DESTINATION /usr/bin)

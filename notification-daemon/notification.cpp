@@ -47,12 +47,16 @@ QString Notification::getDesktopFile()
 
 QString Notification::getIconPath()
 {
-    if (m_iconPath == nullptr && m_desktopFile != nullptr) {
-        // FIXME: this is naive, won't work if desktop file name
-        //         doesn't match the icon
-        return QString("image://icontheme/") + m_desktopFile;
+    if (m_iconPath.isEmpty() && !m_desktopFile.isEmpty()) {
+        QString desktopFilePath = QString(ApplicationsDir) + QString("/") + m_desktopFile + ".desktop"; // FIXME: could this be done better?
+        QFile file;
+        file.setFileName(desktopFilePath);
+        if (file.exists()) {
+            DesktopProperties properties = DesktopProperties(desktopFilePath, "Desktop Entry");
+            return QString("image://icontheme/") + properties.value("Icon", QVariant("application-x-desktop")).toString();
+        }
     }
-    if (m_iconPath == QString("")) {
+    if (m_iconPath.isEmpty()) {
         return QString("image://icontheme/application-x-desktop");
     }
     return QString("file://") + m_iconPath;
