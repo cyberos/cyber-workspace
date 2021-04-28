@@ -6,42 +6,42 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished">d</translation>
+        <translation>д</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished">h</translation>
+        <translation>г</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished">м</translation>
+        <translation>м</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation type="unfinished">до повного заряду.</translation>
+        <translation>до повного заряду.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished">що залишився.</translation>
+        <translation>залишилося.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished">Повністю заряджений.</translation>
+        <translation>Повністю заряджений.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished">зараз</translation>
+        <translation>зараз</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished">тому</translation>
+        <translation>тому</translation>
     </message>
 </context>
 <context>
@@ -50,49 +50,49 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished">% 1 акумулятор</translation>
+        <translation>% 1 акумулятор</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Літій-іонний</translation>
+        <translation>Літій-іонний</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Полімер літію</translation>
+        <translation>Літієво-полімерний</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Фосфат заліза літію</translation>
+        <translation>Фосфат заліза літію</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Свинцева кислота</translation>
+        <translation>Свинцево-кислотний</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Нікель-кадмій</translation>
+        <translation>Нікель-кадмієвий</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Металевий гідрид нікелю</translation>
+        <translation>Металевий гідрид нікелю</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Невідомо</translation>
+        <translation>Невідомо</translation>
     </message>
 </context>
 </TS>
