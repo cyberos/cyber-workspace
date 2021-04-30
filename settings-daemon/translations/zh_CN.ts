@@ -86,7 +86,7 @@
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation>金属氢化物镍</translation>
+        <translation>镍金属氢化物</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
