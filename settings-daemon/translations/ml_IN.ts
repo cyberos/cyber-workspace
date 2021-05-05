@@ -6,42 +6,42 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished">d</translation>
+        <translation>d</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished">h</translation>
+        <translation>h</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished">മീ</translation>
+        <translation>m</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation type="unfinished">പൂർണമായി ചാർജ് ചെയ്യുന്നതുവരെ.</translation>
+        <translation>ഉള്ളിൽ പൂർണമായി ചാർജ് ചെയ്യും.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished">ശേഷിക്കുന്നു.</translation>
+        <translation>ശേഷിക്കുന്നു.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished">പൂർണ്ണമായും ചാർജ്ജ്.</translation>
+        <translation>പൂർണ്ണമായും ചാർജ്ജ് ചെയ്തു.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished">ഇപ്പോൾ</translation>
+        <translation>ഇപ്പോൾ</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished">മുമ്പ്</translation>
+        <translation>മുമ്പ്</translation>
     </message>
 </context>
 <context>
@@ -50,49 +50,49 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished">% 1 ബാറ്ററി</translation>
+        <translation>% 1 ബാറ്ററി</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">ലിഥിയം അയൺ</translation>
+        <translation>ലിഥിയം അയൺ</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">ലിഥിയം പോളിമർ</translation>
+        <translation>ലിഥിയം പോളിമർ</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">ലിഥിയം അയൺ ഫോസ്ഫേറ്റ്</translation>
+        <translation>ലിഥിയം അയൺ ഫോസ്ഫേറ്റ്</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">ലീഡ് ആസിഡ്</translation>
+        <translation>ലീഡ് ആസിഡ്</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">നിക്കൽ കാഡ്മിയം</translation>
+        <translation>നിക്കൽ കാഡ്മിയം</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">നിക്കൽ മെറ്റൽ ഹൈഡ്രൈഡ്</translation>
+        <translation>നിക്കൽ മെറ്റൽ ഹൈഡ്രൈഡ്</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">അജ്ഞാതം</translation>
+        <translation>അജ്ഞാതം</translation>
     </message>
 </context>
 </TS>
