@@ -6,42 +6,42 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished">d</translation>
+        <translation>h</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished">h</translation>
+        <translation>j</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished">m</translation>
+        <translation>m</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation type="unfinished">sampai terisi penuh.</translation>
+        <translation>sampai terisi penuh.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished">tersisa.</translation>
+        <translation>tersisa.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished">Terisi penuh.</translation>
+        <translation>Terisi penuh.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished">sekarang</translation>
+        <translation>sekarang</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished">lalu</translation>
+        <translation>lalu</translation>
     </message>
 </context>
 <context>
@@ -50,49 +50,49 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished">% 1 Baterai</translation>
+        <translation>Baterai %1</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Ion lithium</translation>
+        <translation>Lithium-ion</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Lithium Polymer</translation>
+        <translation>Lithium Polymer</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Lithium Besi Fosfat</translation>
+        <translation>Lithium Besi Fosfat</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Asam Timbal</translation>
+        <translation>Asam Timbal</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Nikel Kadmium</translation>
+        <translation>Nikel Kadmium</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Nikel Metal Hidrida</translation>
+        <translation>Nikel Metal Hidrida</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Tidak diketahui</translation>
+        <translation>Tidak diketahui</translation>
     </message>
 </context>
 </TS>
