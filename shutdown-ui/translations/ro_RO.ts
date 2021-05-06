@@ -6,22 +6,22 @@
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation type="unfinished">Închideți</translation>
+        <translation>Opriți</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation type="unfinished">Reboot</translation>
+        <translation>Reporniți</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation type="unfinished">Deconectați-vă</translation>
+        <translation>Deconectați-vă</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation type="unfinished">Suspendați</translation>
+        <translation>Suspendați</translation>
     </message>
 </context>
 </TS>
