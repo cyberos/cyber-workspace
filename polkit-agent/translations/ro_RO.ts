@@ -6,17 +6,17 @@
     <message>
         <location filename="../main.qml" line="62"/>
         <source>Password</source>
-        <translation type="unfinished">Parolă</translation>
+        <translation>Parolă</translation>
     </message>
     <message>
         <location filename="../main.qml" line="80"/>
         <source>Done</source>
-        <translation type="unfinished">Realizat</translation>
+        <translation>Gata</translation>
     </message>
     <message>
         <location filename="../main.qml" line="87"/>
         <source>Cancel</source>
-        <translation type="unfinished">Anulează</translation>
+        <translation>Anulează</translation>
     </message>
 </context>
 </TS>
