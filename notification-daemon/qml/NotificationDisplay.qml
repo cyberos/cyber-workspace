@@ -7,7 +7,7 @@ import MeuiKit 1.0 as Meui
 import QtGraphicalEffects 1.15
 
 NotificationBase {
-	id: control
+	id: root
 	width: 500
 	height: _layout.implicitHeight + Meui.Units.largeSpacing * 4
 	visible: true
@@ -16,15 +16,17 @@ NotificationBase {
 	required property Notification notification
 
 	onWidthChanged: adjustCorrectLocation()
-    onHeightChanged: adjustCorrectLocation()
-    onPositionChanged: adjustCorrectLocation()
+	onHeightChanged: adjustCorrectLocation()
+	onPositionChanged: adjustCorrectLocation()
 	Component.onCompleted: adjustCorrectLocation()
+
+	signal closed()
 	
 	color: "transparent"
 
 	function adjustCorrectLocation() {
-		var posX = control.position.x
-		var posY = control.position.y
+		var posX = root.position.x
+		var posY = root.position.y
 
 		// left
 		if (posX < 0)
@@ -35,15 +37,15 @@ NotificationBase {
 			posY = Meui.Units.largeSpacing
 		
 		// right
-        if (posX + control.width > Screen.width)
-            posX = Screen.width - control.width - Meui.Units.largeSpacing - 2
+		if (posX + root.width > Screen.width)
+			posX = Screen.width - root.width - Meui.Units.largeSpacing - 2
 
-        // bottom
-        if (posY + control.height > Screen.height)
-            posY = Screen.height - control.height - Meui.Units.largeSpacing
+		// bottom
+		if (posY + root.height > Screen.height)
+			posY = Screen.height - root.height - Meui.Units.largeSpacing
 
-        control.x = posX
-        control.y = posY
+		root.x = posX
+		root.y = posY
 	}
 
 	Meui.RoundedRect {
@@ -55,8 +57,8 @@ NotificationBase {
 	}
 
 	Meui.WindowShadow {
-		view: control
-		geometry: Qt.rect(control.x, control.y, control.width, control.height)
+		view: root
+		geometry: Qt.rect(root.x, root.y, root.width, root.height)
 		radius: _background.radius
 	}
 
@@ -68,6 +70,7 @@ NotificationBase {
 
 		RowLayout {
 			Layout.fillWidth: true
+			height: 64
 
 			Image {
 				id: _notifAppIcon
@@ -79,20 +82,43 @@ NotificationBase {
 
 			ColumnLayout {
 				Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+				Layout.fillWidth: true
 
 				Label {
+					Layout.fillWidth: true
 					text: notification.appTitle
+					elide: Text.ElideRight
+					clip: true
 				}
 
 				Label {
+					Layout.fillWidth: true
 					text: notification.summary
+					elide: Text.ElideRight
 					font.pointSize: 12
+					clip: true
+				}
+			}
+
+			Item {
+				Layout.fillWidth: true
+			}
+
+			Button {
+				text: "Close"
+				onClicked: {
+					root.closed()
+					root.visible = false
 				}
 			}
 		}
 
 		Label {
+			Layout.fillWidth: true
+
 			text: notification.body
+			elide: Text.ElideRight
+			clip: true
 		}
 	}
 }

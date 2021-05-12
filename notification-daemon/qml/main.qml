@@ -14,15 +14,18 @@ Item {
         id: notificationManager
 
         onNewNotification: {
+            // FIXME: some notifications don't appear on screen at all and they can't be closed,
+            //        they will probably eat up memory if we can't fix this
+
             var component = Qt.createComponent("NotificationDisplay.qml")
             var display = component.createObject(
                 root,
                 {
-                    x: Screen.width,
-                    y: Screen.height,
                     notification
                 }
             )
+            // FIXME: will break on multi-monitor setups!
+            
             notificationModel.append(display)
         }
     }

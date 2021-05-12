@@ -56,8 +56,6 @@ uint NotificationManager::Notify(
     const QVariantMap &hints,
     int expire_timeout
 ) {
-    qDebug() << app_name << replaces_id << app_icon << summary << body << actions << hints << expire_timeout;
-    
     int returnID = m_lastID;
     m_lastID++;
 
