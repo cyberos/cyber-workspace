@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_Hant" sourcelanguage="de_DE">
+<TS version="2.1" language="zh_HK" sourcelanguage="de_DE">
 <context>
     <name>Desktop</name>
     <message>
         <location filename="../Desktop.qml" line="22"/>
         <source>Change wallpaper</source>
-        <translation>更改壁布</translation>
+        <translation>轉壁布</translation>
     </message>
 </context>
 <context>
