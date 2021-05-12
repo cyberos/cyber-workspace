@@ -11,6 +11,7 @@
 
 ProcessManager::ProcessManager(QObject *parent)
     : QObject(parent)
+    , m_completedInit(false)
 {
 }
 
@@ -26,9 +27,7 @@ ProcessManager::~ProcessManager()
 
 void ProcessManager::start()
 {
-    loadSystemProcess();
-
-    QTimer::singleShot(100, this, &ProcessManager::loadAutoStartProcess);
+    loadBaseProcesses();
 }
 
 void ProcessManager::logout()
@@ -53,12 +52,40 @@ void ProcessManager::logout()
     QCoreApplication::exit(0);
 }
 
-void ProcessManager::loadSystemProcess()
+void ProcessManager::startProcess(QPair<QString, QStringList> pair) {
+    QProcess *process = new QProcess;
+    process->setProcessChannelMode(QProcess::ForwardedChannels);
+    process->setProgram(pair.first);
+    process->setArguments(pair.second);
+    process->start();
+    process->waitForStarted();
+
+    qDebug() << "Load DE components: " << pair.first << pair.second;
+
+    // Add to map
+    if (process->exitCode() == 0) {
+        m_autoStartProcess.insert(pair.first, process);
+    } else {
+        process->deleteLater();
+    }
+}
+
+void ProcessManager::loadBaseProcesses()
 {
     QList<QPair<QString, QStringList>> list;
     list << qMakePair(QString("kwin_x11"), QStringList());
     list << qMakePair(QString("cyber-settings-daemon"), QStringList());
     list << qMakePair(QString("cyber-xembedsniproxy"), QStringList());
+
+    for (QPair<QString, QStringList> pair : list) {
+        startProcess(pair);
+    }
+}
+
+void ProcessManager::loadLateProcesses() {
+    if (m_completedInit)
+        return;
+    QList<QPair<QString, QStringList>> list;
 
     // Desktop components
     list << qMakePair(QString("cyber-desktop-daemon"), QStringList());
@@ -66,29 +93,14 @@ void ProcessManager::loadSystemProcess()
     list << qMakePair(QString("cyber-launcher"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
-        QProcess *process = new QProcess;
-        process->setProcessChannelMode(QProcess::ForwardedChannels);
-        process->setProgram(pair.first);
-        process->setArguments(pair.second);
-        process->start();
-        process->waitForStarted();
-
-        if (pair.first == "cyber-settings-daemon") {
-            QThread::msleep(800);
-        }
-
-        qDebug() << "Load DE components: " << pair.first << pair.second;
-
-        // Add to map
-        if (process->exitCode() == 0) {
-            m_autoStartProcess.insert(pair.first, process);
-        } else {
-            process->deleteLater();
-        }
+        startProcess(pair);
     }
+
+    QTimer::singleShot(100, this, &ProcessManager::loadAutoStartProcesses);
+    m_completedInit = true;
 }
 
-void ProcessManager::loadAutoStartProcess()
+void ProcessManager::loadAutoStartProcesses()
 {
     QStringList execList;
     QStringList xdgDesktopList;
