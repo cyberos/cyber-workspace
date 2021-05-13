@@ -35,6 +35,7 @@ class Notification : public QObject
     Q_PROPERTY(QString body READ getBody NOTIFY bodyChanged)
     Q_PROPERTY(QString appTitle READ getAppTitle NOTIFY appTitleChanged)
     Q_PROPERTY(QString iconPath READ getIconPath NOTIFY iconPathChanged)
+    Q_PROPERTY(uint id READ getId CONSTANT)
     QML_ELEMENT
 
 public:
@@ -45,6 +46,7 @@ public:
     QString getAppTitle();
     QString getDesktopFile();
     QString getIconPath();
+    uint getId();
 
     // These are meant to be called only by DBus hooks in notificationmanager.cpp,
     // don't use them in other places!
@@ -53,8 +55,10 @@ public:
     void setAppTitle(QString appTitle);
     void setDesktopFile(QString desktopFile);
     void setIconPath(QString iconPath);
+    void setId(uint id);
 
 private:
+    uint m_id;
     QString m_summary;
     QString m_body;
     QString m_appTitle;

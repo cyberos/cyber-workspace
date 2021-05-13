@@ -62,6 +62,10 @@ QString Notification::getIconPath()
     return QString("file://") + m_iconPath;
 }
 
+uint Notification::getId() {
+    return m_id;
+}
+
 void Notification::setSummary(QString summary)
 {
     m_summary = summary;
@@ -89,4 +93,8 @@ void Notification::setIconPath(QString iconPath)
 {
     m_iconPath = iconPath;
     emit iconPathChanged();
+}
+
+void Notification::setId(uint id) {
+    m_id = id;
 }

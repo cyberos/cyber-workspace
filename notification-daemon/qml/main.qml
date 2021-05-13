@@ -10,13 +10,18 @@ Item {
     id: root
     visible: false
 
+    function getIndex(display) {
+        for (const index in notificationModel) {
+            if (notificationModel[index] == display) {
+                return index
+            }
+        }
+    }
+
     NotificationManager {
         id: notificationManager
 
         onNewNotification: {
-            // FIXME: some notifications don't appear on screen at all and they can't be closed,
-            //        they will probably eat up memory if we can't fix this
-
             var component = Qt.createComponent("NotificationDisplay.qml")
             var display = component.createObject(
                 root,
@@ -24,9 +29,18 @@ Item {
                     notification
                 }
             )
-            // FIXME: will break on multi-monitor setups!
             
             notificationModel.append(display)
+            
+            display.position.x = notificationManager.availableWidth - display.width - Meui.Units.largeSpacing - 2
+            display.position.y = notificationManager.availableHeight - (display.height + Meui.Units.largeSpacing) * notificationModel.count
+            display.adjustCorrectLocation()
+
+            display.closed.connect(() => {
+                notificationManager.qmlCloseNotification(notification)
+                notificationModel.remove(getIndex(display))
+                display.destroy()
+            })
         }
     }
 

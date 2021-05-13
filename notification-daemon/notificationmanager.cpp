@@ -29,10 +29,29 @@ NotificationManager::NotificationManager(QObject* parent)
     // connect to D-Bus and register as an object
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.Notifications"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/freedesktop/Notifications"), this);
+
+    m_availableWidth = qApp->primaryScreen()->availableGeometry().width();
+    m_availableHeight = qApp->primaryScreen()->availableGeometry().height();
+
+    connect(qApp->primaryScreen(), &QScreen::availableGeometryChanged, this, &NotificationManager::onAvailableSpaceChanged, Qt::QueuedConnection);
 }
 
 void NotificationManager::CloseNotification(uint id) {
-    emit NotificationClosed(id, 3);
+    if (m_notificationMap.keys().contains(id)) {
+        emit NotificationClosed(id, 3);
+        emit closeNotification(m_notificationMap[id]);
+        delete m_notificationMap[id];
+        m_notificationMap.remove(id);
+    }
+}
+
+void NotificationManager::qmlCloseNotification(Notification* notification) {
+    uint id = notification->getId();
+    if (m_notificationMap.keys().contains(id)) {
+        emit NotificationClosed(id, 2);
+        delete m_notificationMap[id];
+        m_notificationMap.remove(id);
+    }
 }
 
 QStringList NotificationManager::GetCapabilities() {
@@ -63,6 +82,7 @@ uint NotificationManager::Notify(
     notification->setAppTitle(app_name);
     notification->setSummary(summary);
     notification->setBody(body);
+    notification->setId(returnID);
 
     for (auto key : hints.keys()) {
         if (key == QString("desktop-entry")) {
@@ -72,5 +92,27 @@ uint NotificationManager::Notify(
 
     emit newNotification(notification);
 
+    m_notificationMap.insert(returnID, notification);
+
     return returnID;
+}
+
+void NotificationManager::onAvailableSpaceChanged(const QRect &geometry) {
+    if (geometry.width() != m_availableWidth) {
+        m_availableWidth = geometry.width();
+        emit availableWidthChanged();
+    }
+
+    if (geometry.height() != m_availableHeight) {
+        m_availableHeight = geometry.height();
+        emit availableHeightChanged();
+    }
+}
+
+int NotificationManager::availableWidth() {
+    return m_availableWidth;
+}
+
+int NotificationManager::availableHeight() {
+    return m_availableHeight;
 }

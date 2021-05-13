@@ -15,11 +15,6 @@ NotificationBase {
 	property point position: Qt.point(Screen.width, Screen.height)
 	required property Notification notification
 
-	onWidthChanged: adjustCorrectLocation()
-	onHeightChanged: adjustCorrectLocation()
-	onPositionChanged: adjustCorrectLocation()
-	Component.onCompleted: adjustCorrectLocation()
-
 	signal closed()
 	
 	color: "transparent"

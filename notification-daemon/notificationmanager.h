@@ -26,15 +26,25 @@
 #include <QStringList>
 #include <QVariantMap>
 #include <QDBusConnection>
+#include <QGuiApplication>
+#include <QScreen>
+#include <QMap>
 #include "notification.h"
 
 class NotificationManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(int availableWidth READ availableWidth NOTIFY availableWidthChanged)
+    Q_PROPERTY(int availableHeight READ availableHeight NOTIFY availableHeightChanged)
     QML_ELEMENT
 
 public:
     explicit NotificationManager(QObject* parent = nullptr);
+
+    int availableWidth();
+    int availableHeight();
+
+    Q_INVOKABLE void qmlCloseNotification(Notification* notification);
 
 public slots:
     void CloseNotification(uint id);
@@ -58,9 +68,18 @@ signals:
 
     // QML signals
     void newNotification(Notification* notification);
+    void closeNotification(Notification* notification);
+    void availableWidthChanged();
+    void availableHeightChanged();
 
 private:
     uint m_lastID;
+    int m_availableWidth;
+    int m_availableHeight;
+
+    QMap<uint, Notification*> m_notificationMap;
+
+    void onAvailableSpaceChanged(const QRect &geometry);
 };
 
 #endif // NOTIFICATIONMANAGER_H
