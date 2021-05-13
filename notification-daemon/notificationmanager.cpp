@@ -40,7 +40,6 @@ void NotificationManager::CloseNotification(uint id) {
     if (m_notificationMap.keys().contains(id)) {
         emit NotificationClosed(id, 3);
         emit closeNotification(m_notificationMap[id]);
-        delete m_notificationMap[id];
         m_notificationMap.remove(id);
     }
 }
@@ -49,7 +48,6 @@ void NotificationManager::qmlCloseNotification(Notification* notification) {
     uint id = notification->getId();
     if (m_notificationMap.keys().contains(id)) {
         emit NotificationClosed(id, 2);
-        delete m_notificationMap[id];
         m_notificationMap.remove(id);
     }
 }
@@ -78,7 +76,7 @@ uint NotificationManager::Notify(
     int returnID = m_lastID;
     m_lastID++;
 
-    Notification* notification = new Notification(nullptr);
+    Notification* notification = new Notification();
     notification->setAppTitle(app_name);
     notification->setSummary(summary);
     notification->setBody(body);

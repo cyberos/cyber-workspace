@@ -11,11 +11,12 @@ Item {
     visible: false
 
     function getIndex(display) {
-        for (const index in notificationModel) {
-            if (notificationModel[index] == display) {
-                return index
+        for (var i = 0; i < notificationModel.count; i++) {
+            if (notificationModel.get(i) == display) {
+                return i
             }
         }
+        return -1
     }
 
     NotificationManager {
@@ -37,7 +38,12 @@ Item {
             display.adjustCorrectLocation()
 
             display.closed.connect(() => {
-                notificationModel.remove(getIndex(display))
+                var index = getIndex(display)
+                if (index == -1) {
+                    console.error("index is -1; aborting")
+                    return
+                }
+                notificationModel.remove(index)
                 display.destroy()
                 notificationManager.qmlCloseNotification(notification)
             })
