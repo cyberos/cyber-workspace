@@ -99,11 +99,33 @@ NotificationBase {
 				Layout.fillWidth: true
 			}
 
-			Button {
-				text: "Close"
-				onClicked: {
-					root.closed()
-					root.visible = false
+			Image {
+				Layout.alignment: Qt.AlignRight | Qt.AlignTop
+				source: "qrc:/images/" + (Meui.Theme.darkMode ? "light" : "dark") + "/close.svg"
+				
+				MouseArea {
+					id: mouseArea
+					anchors.fill: parent
+					acceptedButtons: Qt.LeftButton
+					hoverEnabled: true
+
+					onClicked: root.closed()
+
+					Rectangle {
+						id: highlight
+						color: Meui.Theme.textColor
+						opacity: mouseArea.pressed ? 0.3 :
+							mouseArea.containsMouse ? 0.1 : 0
+						anchors.fill: parent
+						radius: highlight.width / 2
+
+						Behavior on opacity {
+							NumberAnimation {
+								duration: 125
+								easing.type: Easing.InOutCubic
+							}
+						}
+					}
 				}
 			}
 		}

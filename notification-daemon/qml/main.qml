@@ -37,9 +37,9 @@ Item {
             display.adjustCorrectLocation()
 
             display.closed.connect(() => {
-                notificationManager.qmlCloseNotification(notification)
                 notificationModel.remove(getIndex(display))
                 display.destroy()
+                notificationManager.qmlCloseNotification(notification)
             })
         }
     }

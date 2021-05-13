@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>NotificationDisplay.qml</file>
+        <file>images/dark/close.svg</file>
+        <file>images/light/close.svg</file>
     </qresource>
 </RCC>
