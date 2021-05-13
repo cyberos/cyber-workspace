@@ -91,6 +91,7 @@ void ProcessManager::loadLateProcesses() {
     list << qMakePair(QString("cyber-desktop-daemon"), QStringList());
     list << qMakePair(QString("cyber-dock"), QStringList());
     list << qMakePair(QString("cyber-launcher"), QStringList());
+    list << qMakePair(QString("cyber-notification-daemon"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         startProcess(pair);
@@ -133,6 +134,8 @@ void ProcessManager::loadAutoStartProcesses()
         process->setProgram(exec);
         process->start();
         process->waitForStarted();
+
+        qDebug() << "Load autostart: " << exec;
 
         if (process->exitCode() == 0) {
             m_autoStartProcess.insert(exec, process);
