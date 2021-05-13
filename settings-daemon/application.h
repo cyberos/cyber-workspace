@@ -42,6 +42,7 @@ private:
     BrightnessManager *m_brightnessManager;
     UPowerManager *m_upowerManager;
     Language *m_language;
+    QDBusInterface m_interface;
 };
 
 #endif // APPLICATION_H

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="el" sourcelanguage="de_DE">
 <context>
     <name>main</name>
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation>关机</translation>
+        <translation type="unfinished">Κλείσιμο</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation>重新启动</translation>
+        <translation type="unfinished">Επανεκκίνηση</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation>注销</translation>
+        <translation type="unfinished">Αποσύνδεση</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation>休眠</translation>
+        <translation type="unfinished">Αναστολή</translation>
     </message>
 </context>
 </TS>

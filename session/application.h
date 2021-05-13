@@ -37,6 +37,10 @@ public slots:
         m_power.suspend();
     }
 
+    void completeDEInit() {
+        m_processManager->loadLateProcesses();
+    }
+
 private:
     void initEnvironments();
     void initLanguage();

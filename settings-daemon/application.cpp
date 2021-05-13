@@ -35,6 +35,7 @@ Application::Application(int &argc, char **argv)
     , m_brightnessManager(new BrightnessManager(this))
     , m_upowerManager(new UPowerManager(this))
     , m_language(new Language(this))
+    , m_interface("org.cyber.Session", "/Session", "org.cyber.Session", QDBusConnection::sessionBus(), this)
 {
     new DBusAdaptor(this);
     // connect to D-Bus and register as an object:
@@ -50,5 +51,9 @@ Application::Application(int &argc, char **argv)
         } else {
             translator->deleteLater();
         }
+    }
+
+    if (m_interface.isValid()) {
+        m_interface.call("completeDEInit");
     }
 }

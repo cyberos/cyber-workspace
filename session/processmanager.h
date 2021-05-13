@@ -16,12 +16,17 @@ public:
     void start();
     void logout();
 
-    void loadSystemProcess();
-    void loadAutoStartProcess();
+    void loadBaseProcesses();
+    void loadAutoStartProcesses();
+    void loadLateProcesses();
 
 private:
     QMap<QString, QProcess *> m_systemProcess;
     QMap<QString, QProcess *> m_autoStartProcess;
+
+    void startProcess(QPair<QString, QStringList> pair);
+
+    bool m_completedInit;
 };
 
 #endif // PROCESSMANAGER_H

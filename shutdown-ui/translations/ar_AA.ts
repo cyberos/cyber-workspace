@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_Hant" sourcelanguage="de_DE">
+<TS version="2.1" language="ar" sourcelanguage="de_DE">
 <context>
     <name>main</name>
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation>關機</translation>
+        <translation>اغلق</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation>重新啟動</translation>
+        <translation>اعادة التشغيل</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation>登出</translation>
+        <translation>تسجيل الخروج</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation>休眠</translation>
+        <translation>النوم</translation>
     </message>
 </context>
 </TS>

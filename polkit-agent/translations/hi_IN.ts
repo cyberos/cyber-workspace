@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="uk" sourcelanguage="de_DE">
+<TS version="2.1" language="hi" sourcelanguage="de_DE">
 <context>
     <name>main</name>
     <message>
         <location filename="../main.qml" line="62"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation type="unfinished">कुंजिका</translation>
     </message>
     <message>
         <location filename="../main.qml" line="80"/>
         <source>Done</source>
-        <translation>Готово</translation>
+        <translation type="unfinished">किया हुआ</translation>
     </message>
     <message>
         <location filename="../main.qml" line="87"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation type="unfinished">रद्द करना</translation>
     </message>
 </context>
 </TS>
