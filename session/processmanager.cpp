@@ -73,6 +73,7 @@ void ProcessManager::startProcess(QPair<QString, QStringList> pair) {
 void ProcessManager::loadBaseProcesses()
 {
     QList<QPair<QString, QStringList>> list;
+    list << qMakePair(QString("kglobalaccel5"), QStringList());
     list << qMakePair(QString("kwin_x11"), QStringList());
     list << qMakePair(QString("cyber-settings-daemon"), QStringList());
     list << qMakePair(QString("cyber-xembedsniproxy"), QStringList());
