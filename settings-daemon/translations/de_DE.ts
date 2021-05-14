@@ -21,7 +21,7 @@
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation>bis Akku voll.</translation>
+        <translation>bis der Akku voll geladen ist.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
@@ -68,25 +68,25 @@
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation></translation>
+        <translation>Lithium Eisen Phosphat</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation></translation>
+        <translation>Bleiakku</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation></translation>
+        <translation>Nickel Cadmium Akku</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation></translation>
+        <translation>Nickel Metallhydrid Akku</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
