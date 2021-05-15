@@ -6,7 +6,7 @@
     <message>
         <location filename="../Desktop.qml" line="22"/>
         <source>Change wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">壁紙の変更</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../desktopview.cpp" line="12"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">デスクトップ</translation>
     </message>
 </context>
 </TS>
