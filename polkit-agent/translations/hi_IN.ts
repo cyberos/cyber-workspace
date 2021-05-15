@@ -6,17 +6,17 @@
     <message>
         <location filename="../main.qml" line="62"/>
         <source>Password</source>
-        <translation type="unfinished">कुंजिका</translation>
+        <translation>पासवर्ड</translation>
     </message>
     <message>
         <location filename="../main.qml" line="80"/>
         <source>Done</source>
-        <translation type="unfinished">किया हुआ</translation>
+        <translation>किया है</translation>
     </message>
     <message>
         <location filename="../main.qml" line="87"/>
         <source>Cancel</source>
-        <translation type="unfinished">रद्द करना</translation>
+        <translation>रद्द करो</translation>
     </message>
 </context>
 </TS>
