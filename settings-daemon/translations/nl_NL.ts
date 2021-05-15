@@ -11,7 +11,7 @@
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation>h</translation>
+        <translation type="unfinished">h</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
