@@ -6,7 +6,7 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation>d</translation>
+        <translation type="unfinished">d</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
