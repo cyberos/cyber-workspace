@@ -6,32 +6,32 @@
     <message>
         <location filename="../battery/battery.cpp" line="268"/>
         <source>d</source>
-        <translation type="unfinished">घ</translation>
+        <translation>d</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="274"/>
         <source>h</source>
-        <translation type="unfinished">एच</translation>
+        <translation>h</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="281"/>
         <source>m</source>
-        <translation type="unfinished">म</translation>
+        <translation>m</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="290"/>
         <source>until fully charged.</source>
-        <translation type="unfinished">पूरी तरह से चार्ज होने तक।</translation>
+        <translation>पूरी तरह से चार्ज होने तक।</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished">शेष।</translation>
+        <translation>शेष।</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished">पूरी तरह से चार्ज।</translation>
+        <translation>पूरी चार्ज।</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
