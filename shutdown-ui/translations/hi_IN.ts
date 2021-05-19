@@ -6,22 +6,22 @@
     <message>
         <location filename="../main.qml" line="47"/>
         <source>Shutdown</source>
-        <translation type="unfinished">शट डाउन</translation>
+        <translation>शट डाउन</translation>
     </message>
     <message>
         <location filename="../main.qml" line="55"/>
         <source>Reboot</source>
-        <translation type="unfinished">रीबूट</translation>
+        <translation>रीबूट</translation>
     </message>
     <message>
         <location filename="../main.qml" line="63"/>
         <source>Logout</source>
-        <translation type="unfinished">लॉग आउट</translation>
+        <translation>लॉग आउट</translation>
     </message>
     <message>
         <location filename="../main.qml" line="71"/>
         <source>Suspend</source>
-        <translation type="unfinished">निलंबित करें</translation>
+        <translation>सस्पेंड</translation>
     </message>
 </context>
 </TS>
