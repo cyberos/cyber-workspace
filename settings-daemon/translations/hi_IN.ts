@@ -36,12 +36,12 @@
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished">अब क</translation>
+        <translation>अब</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished">पूर्व</translation>
+        <translation>पूर्व</translation>
     </message>
 </context>
 <context>
@@ -50,49 +50,49 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished">% 1 बैटरी</translation>
+        <translation>% 1 बैटरी</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">लिथियम आयन</translation>
+        <translation>लिथियम आयन</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
         <source>Lithium Polymer</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">लिथियम पॉलिमर</translation>
+        <translation>लिथियम पॉलिमर</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="91"/>
         <source>Lithium Iron Phosphate</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">लिथियम आयरन फॉस्फेट</translation>
+        <translation>लिथियम आयरन फॉस्फेट</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="93"/>
         <source>Lead Acid</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">लैड एसिड</translation>
+        <translation>लैड एसिड</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="95"/>
         <source>Nickel Cadmium</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">निकल कैडमियम</translation>
+        <translation>निकल कैडमियम</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="97"/>
         <source>Nickel Metal Hydride</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">निकल धातु हाइड्राइड</translation>
+        <translation>निकल मेटल हाइड्राइड</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">अनजान</translation>
+        <translation>अनजान</translation>
     </message>
 </context>
 </TS>
