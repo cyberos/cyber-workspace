@@ -93,6 +93,7 @@ void ProcessManager::loadLateProcesses() {
     list << qMakePair(QString("cyber-dock"), QStringList());
     list << qMakePair(QString("cyber-launcher"), QStringList());
     list << qMakePair(QString("cyber-notification-daemon"), QStringList());
+    list << qMakePair(QString("cyber-hotkeys"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         startProcess(pair);
