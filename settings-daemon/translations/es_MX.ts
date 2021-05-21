@@ -36,12 +36,12 @@
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished">ahora</translation>
+        <translation>ahora</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished">hace</translation>
+        <translation>hace</translation>
     </message>
 </context>
 <context>
