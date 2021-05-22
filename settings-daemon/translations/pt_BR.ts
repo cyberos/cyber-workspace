@@ -26,22 +26,22 @@
     <message>
         <location filename="../battery/battery.cpp" line="292"/>
         <source>remaining.</source>
-        <translation type="unfinished">que resta.</translation>
+        <translation>restante.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="294"/>
         <source>Fully charged.</source>
-        <translation type="unfinished">Totalmente carregado.</translation>
+        <translation>Totalmente carregada.</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="317"/>
         <source>now</source>
-        <translation type="unfinished">agora</translation>
+        <translation>agora</translation>
     </message>
     <message>
         <location filename="../battery/battery.cpp" line="319"/>
         <source>ago</source>
-        <translation type="unfinished">atrás</translation>
+        <translation>até</translation>
     </message>
 </context>
 <context>
@@ -50,13 +50,13 @@
         <location filename="../battery/upowerdevice.cpp" line="71"/>
         <source>%1 Battery</source>
         <comment>%1 is battery technology</comment>
-        <translation type="unfinished">%1 Bateria</translation>
+        <translation>%1 de Bateria</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="87"/>
         <source>Lithium-ion</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Íon-lítio</translation>
+        <translation>Íon de lítio</translation>
     </message>
     <message>
         <location filename="../battery/upowerdevice.cpp" line="89"/>
@@ -92,7 +92,7 @@
         <location filename="../battery/upowerdevice.cpp" line="99"/>
         <source>Unknown</source>
         <comment>battery technology</comment>
-        <translation type="unfinished">Desconhecido</translation>
+        <translation>Desconhecido</translation>
     </message>
 </context>
 </TS>
